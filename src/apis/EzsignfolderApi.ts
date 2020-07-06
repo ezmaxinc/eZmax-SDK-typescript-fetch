@@ -36,6 +36,12 @@ import {
     EzsignfolderGetObjectV1Response,
     EzsignfolderGetObjectV1ResponseFromJSON,
     EzsignfolderGetObjectV1ResponseToJSON,
+    EzsignfolderSendV1Request,
+    EzsignfolderSendV1RequestFromJSON,
+    EzsignfolderSendV1RequestToJSON,
+    EzsignfolderSendV1Response,
+    EzsignfolderSendV1ResponseFromJSON,
+    EzsignfolderSendV1ResponseToJSON,
 } from '../models';
 
 export interface EzsignfolderCreateObjectV1OperationRequest {
@@ -57,6 +63,11 @@ export interface EzsignfolderGetObjectGetChildrenV1Request {
 
 export interface EzsignfolderGetObjectV1Request {
     pkiEzsignfolderID: number;
+}
+
+export interface EzsignfolderSendV1OperationRequest {
+    pkiEzsignfolderID: number;
+    ezsignfolderSendV1Request: EzsignfolderSendV1Request;
 }
 
 /**
@@ -242,6 +253,47 @@ export class EzsignfolderApi extends runtime.BaseAPI {
      */
     async ezsignfolderGetObjectV1(requestParameters: EzsignfolderGetObjectV1Request): Promise<EzsignfolderGetObjectV1Response> {
         const response = await this.ezsignfolderGetObjectV1Raw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Send the Ezsignfolder to the signatories for signature
+     */
+    async ezsignfolderSendV1Raw(requestParameters: EzsignfolderSendV1OperationRequest): Promise<runtime.ApiResponse<EzsignfolderSendV1Response>> {
+        if (requestParameters.pkiEzsignfolderID === null || requestParameters.pkiEzsignfolderID === undefined) {
+            throw new runtime.RequiredError('pkiEzsignfolderID','Required parameter requestParameters.pkiEzsignfolderID was null or undefined when calling ezsignfolderSendV1.');
+        }
+
+        if (requestParameters.ezsignfolderSendV1Request === null || requestParameters.ezsignfolderSendV1Request === undefined) {
+            throw new runtime.RequiredError('ezsignfolderSendV1Request','Required parameter requestParameters.ezsignfolderSendV1Request was null or undefined when calling ezsignfolderSendV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/object/ezsignfolder/{pkiEzsignfolderID}/send`.replace(`{${"pkiEzsignfolderID"}}`, encodeURIComponent(String(requestParameters.pkiEzsignfolderID))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: EzsignfolderSendV1RequestToJSON(requestParameters.ezsignfolderSendV1Request),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EzsignfolderSendV1ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Send the Ezsignfolder to the signatories for signature
+     */
+    async ezsignfolderSendV1(requestParameters: EzsignfolderSendV1OperationRequest): Promise<EzsignfolderSendV1Response> {
+        const response = await this.ezsignfolderSendV1Raw(requestParameters);
         return await response.value();
     }
 
