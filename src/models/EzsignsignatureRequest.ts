@@ -69,13 +69,13 @@ export interface EzsignsignatureRequest {
      */
     eEzsignsignatureType: EzsignsignatureRequestEEzsignsignatureTypeEnum;
     /**
-     * A reference to a valid Ezsignfolder.
+     * A reference to a valid Ezsigndocument.
      * 
-     * That value is returned after a successful Ezsignfolder Creation.
+     * That value is returned after a successful Ezsigndocumentation Creation.
      * @type {number}
      * @memberof EzsignsignatureRequest
      */
-    fkiEzsignfolderID: number;
+    fkiEzsigndocumentID: number;
 }
 
 export function EzsignsignatureRequestFromJSON(json: any): EzsignsignatureRequest {
@@ -94,7 +94,7 @@ export function EzsignsignatureRequestFromJSONTyped(json: any, ignoreDiscriminat
         'iEzsignsignatureY': json['iEzsignsignatureY'],
         'iEzsignsignatureStep': json['iEzsignsignatureStep'],
         'eEzsignsignatureType': json['eEzsignsignatureType'],
-        'fkiEzsignfolderID': json['fkiEzsignfolderID'],
+        'fkiEzsigndocumentID': json['fkiEzsigndocumentID'],
     };
 }
 
@@ -113,7 +113,7 @@ export function EzsignsignatureRequestToJSON(value?: EzsignsignatureRequest | nu
         'iEzsignsignatureY': value.iEzsignsignatureY,
         'iEzsignsignatureStep': value.iEzsignsignatureStep,
         'eEzsignsignatureType': value.eEzsignsignatureType,
-        'fkiEzsignfolderID': value.fkiEzsignfolderID,
+        'fkiEzsigndocumentID': value.fkiEzsigndocumentID,
     };
 }
 
