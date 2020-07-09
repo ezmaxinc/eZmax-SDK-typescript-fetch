@@ -29,41 +29,48 @@ import {
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/deleteObject API Request
+ * Response for the /1/object/ezsignsignature/getObject API Request
  * @export
- * @interface EzsignfolderDeleteObjectV1Response
+ * @interface EzsignsignatureGetObjectV1Response
  */
-export interface EzsignfolderDeleteObjectV1Response {
+export interface EzsignsignatureGetObjectV1Response {
+    /**
+     * Payload for the /1/object/ezsignsignature/getObject API Request
+     * @type {object}
+     * @memberof EzsignsignatureGetObjectV1Response
+     */
+    mPayload: object;
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureGetObjectV1Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureGetObjectV1Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSON(json: any): EzsignfolderDeleteObjectV1Response {
-    return EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json, false);
+export function EzsignsignatureGetObjectV1ResponseFromJSON(json: any): EzsignsignatureGetObjectV1Response {
+    return EzsignsignatureGetObjectV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderDeleteObjectV1Response {
+export function EzsignsignatureGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureGetObjectV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
+        'mPayload': json['mPayload'],
         'objDebugPayload': !exists(json, 'objDebugPayload') ? undefined : CommonResponseObjDebugPayloadFromJSON(json['objDebugPayload']),
         'objDebug': !exists(json, 'objDebug') ? undefined : CommonResponseObjDebugFromJSON(json['objDebug']),
     };
 }
 
-export function EzsignfolderDeleteObjectV1ResponseToJSON(value?: EzsignfolderDeleteObjectV1Response | null): any {
+export function EzsignsignatureGetObjectV1ResponseToJSON(value?: EzsignsignatureGetObjectV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -72,6 +79,7 @@ export function EzsignfolderDeleteObjectV1ResponseToJSON(value?: EzsignfolderDel
     }
     return {
         
+        'mPayload': value.mPayload,
         'objDebugPayload': CommonResponseObjDebugPayloadToJSON(value.objDebugPayload),
         'objDebug': CommonResponseObjDebugToJSON(value.objDebug),
     };

@@ -29,30 +29,30 @@ import {
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/deleteObject API Request
+ * Response for the /1/object/ezsignsignature/deleteObject API Request
  * @export
- * @interface EzsignfolderDeleteObjectV1Response
+ * @interface EzsignsignatureDeleteObjectV1Response
  */
-export interface EzsignfolderDeleteObjectV1Response {
+export interface EzsignsignatureDeleteObjectV1Response {
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureDeleteObjectV1Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureDeleteObjectV1Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSON(json: any): EzsignfolderDeleteObjectV1Response {
-    return EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json, false);
+export function EzsignsignatureDeleteObjectV1ResponseFromJSON(json: any): EzsignsignatureDeleteObjectV1Response {
+    return EzsignsignatureDeleteObjectV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderDeleteObjectV1Response {
+export function EzsignsignatureDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureDeleteObjectV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -63,7 +63,7 @@ export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignor
     };
 }
 
-export function EzsignfolderDeleteObjectV1ResponseToJSON(value?: EzsignfolderDeleteObjectV1Response | null): any {
+export function EzsignsignatureDeleteObjectV1ResponseToJSON(value?: EzsignsignatureDeleteObjectV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }

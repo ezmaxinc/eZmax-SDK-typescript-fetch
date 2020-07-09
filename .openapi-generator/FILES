@@ -7,6 +7,7 @@ src/apis/ActivesessionApi.ts
 src/apis/EzsigndocumentApi.ts
 src/apis/EzsignfolderApi.ts
 src/apis/EzsignfoldersignerassociationApi.ts
+src/apis/EzsignsignatureApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/ActivesessionGetCurrentV1Response.ts
@@ -45,6 +46,15 @@ src/models/EzsignfoldersignerassociationEditObjectV1Response.ts
 src/models/EzsignfoldersignerassociationGetObjectV1Response.ts
 src/models/EzsignfoldersignerassociationRequest.ts
 src/models/EzsignfoldersignerassociationRequestCompound.ts
+src/models/EzsignsignatureCreateObjectV1Request.ts
+src/models/EzsignsignatureCreateObjectV1Response.ts
+src/models/EzsignsignatureCreateObjectV1ResponseMPayload.ts
+src/models/EzsignsignatureDeleteObjectV1Response.ts
+src/models/EzsignsignatureEditObjectV1Request.ts
+src/models/EzsignsignatureEditObjectV1Response.ts
+src/models/EzsignsignatureGetObjectV1Response.ts
+src/models/EzsignsignatureRequest.ts
+src/models/EzsignsignatureRequestCompound.ts
 src/models/EzsignsignerRequest.ts
 src/models/EzsignsignerRequestCompound.ts
 src/models/EzsignsignerRequestCompoundContact.ts

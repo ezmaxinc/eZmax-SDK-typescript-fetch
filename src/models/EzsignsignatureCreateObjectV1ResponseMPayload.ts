@@ -14,36 +14,36 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * Payload for the /1/object/ezsignfoldersignerassociation/editObject API Request
+ * Payload for the /1/object/ezsignsignature/editObject API Request
  * @export
- * @interface EzsignfoldersignerassociationCreateObjectV1ResponseMPayload
+ * @interface EzsignsignatureCreateObjectV1ResponseMPayload
  */
-export interface EzsignfoldersignerassociationCreateObjectV1ResponseMPayload {
+export interface EzsignsignatureCreateObjectV1ResponseMPayload {
     /**
      * An array of unique IDs representing the object that were requested to be created.
      * 
      * They are returned in the same order as the array containing the objects to be created that was sent in the request.
      * @type {Array<number>}
-     * @memberof EzsignfoldersignerassociationCreateObjectV1ResponseMPayload
+     * @memberof EzsignsignatureCreateObjectV1ResponseMPayload
      */
-    aPkiEzsignfoldersignerassociationID: Array<number>;
+    aPkiEzsignsignatureID: Array<number>;
 }
 
-export function EzsignfoldersignerassociationCreateObjectV1ResponseMPayloadFromJSON(json: any): EzsignfoldersignerassociationCreateObjectV1ResponseMPayload {
-    return EzsignfoldersignerassociationCreateObjectV1ResponseMPayloadFromJSONTyped(json, false);
+export function EzsignsignatureCreateObjectV1ResponseMPayloadFromJSON(json: any): EzsignsignatureCreateObjectV1ResponseMPayload {
+    return EzsignsignatureCreateObjectV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignfoldersignerassociationCreateObjectV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfoldersignerassociationCreateObjectV1ResponseMPayload {
+export function EzsignsignatureCreateObjectV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureCreateObjectV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'aPkiEzsignfoldersignerassociationID': json['a_pkiEzsignfoldersignerassociationID'],
+        'aPkiEzsignsignatureID': json['a_pkiEzsignsignatureID'],
     };
 }
 
-export function EzsignfoldersignerassociationCreateObjectV1ResponseMPayloadToJSON(value?: EzsignfoldersignerassociationCreateObjectV1ResponseMPayload | null): any {
+export function EzsignsignatureCreateObjectV1ResponseMPayloadToJSON(value?: EzsignsignatureCreateObjectV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -52,7 +52,7 @@ export function EzsignfoldersignerassociationCreateObjectV1ResponseMPayloadToJSO
     }
     return {
         
-        'a_pkiEzsignfoldersignerassociationID': value.aPkiEzsignfoldersignerassociationID,
+        'a_pkiEzsignsignatureID': value.aPkiEzsignsignatureID,
     };
 }
 

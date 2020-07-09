@@ -29,30 +29,30 @@ import {
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/deleteObject API Request
+ * Response for the /1/object/ezsignsignature/editObject API Request
  * @export
- * @interface EzsignfolderDeleteObjectV1Response
+ * @interface EzsignsignatureEditObjectV1Response
  */
-export interface EzsignfolderDeleteObjectV1Response {
+export interface EzsignsignatureEditObjectV1Response {
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureEditObjectV1Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignfolderDeleteObjectV1Response
+     * @memberof EzsignsignatureEditObjectV1Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSON(json: any): EzsignfolderDeleteObjectV1Response {
-    return EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json, false);
+export function EzsignsignatureEditObjectV1ResponseFromJSON(json: any): EzsignsignatureEditObjectV1Response {
+    return EzsignsignatureEditObjectV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderDeleteObjectV1Response {
+export function EzsignsignatureEditObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureEditObjectV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -63,7 +63,7 @@ export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignor
     };
 }
 
-export function EzsignfolderDeleteObjectV1ResponseToJSON(value?: EzsignfolderDeleteObjectV1Response | null): any {
+export function EzsignsignatureEditObjectV1ResponseToJSON(value?: EzsignsignatureEditObjectV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
