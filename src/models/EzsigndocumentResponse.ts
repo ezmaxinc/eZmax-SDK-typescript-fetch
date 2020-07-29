@@ -16,42 +16,22 @@ import { exists, mapValues } from '../runtime';
 /**
  * An Ezsigndocument Object
  * @export
- * @interface EzsigndocumentRequest
+ * @interface EzsigndocumentResponse
  */
-export interface EzsigndocumentRequest {
-    /**
-     * Indicates where to look for the document binary content.
-     * @type {string}
-     * @memberof EzsigndocumentRequest
-     */
-    eEzsigndocumentSource: EzsigndocumentRequestEEzsigndocumentSourceEnum;
-    /**
-     * Indicates the format of the document.
-     * @type {string}
-     * @memberof EzsigndocumentRequest
-     */
-    eEzsigndocumentFormat: EzsigndocumentRequestEEzsigndocumentFormatEnum;
-    /**
-     * The Base64 encoded binary content of the document.
-     * 
-     * This field is Required when eEzsigndocumentSource = Base64.
-     * @type {string}
-     * @memberof EzsigndocumentRequest
-     */
-    sEzsigndocumentBase64?: string;
+export interface EzsigndocumentResponse {
     /**
      * A reference to a valid Ezsignfolder.
      * 
      * That value is returned after a successful Ezsignfolder Creation.
      * @type {number}
-     * @memberof EzsigndocumentRequest
+     * @memberof EzsigndocumentResponse
      */
     fkiEzsignfolderID: number;
     /**
      * Represent a Date Time.
      * The timezone is the one configured in the User's profile.
      * @type {string}
-     * @memberof EzsigndocumentRequest
+     * @memberof EzsigndocumentResponse
      */
     dtEzsigndocumentDuedate: string;
     /**
@@ -59,36 +39,33 @@ export interface EzsigndocumentRequest {
      * 1. French
      * 2. English
      * @type {number}
-     * @memberof EzsigndocumentRequest
+     * @memberof EzsigndocumentResponse
      */
     fkiLanguageID: number;
     /**
      * The actual file name that will be used when downloading or attaching to an email.
      * @type {string}
-     * @memberof EzsigndocumentRequest
+     * @memberof EzsigndocumentResponse
      */
     sEzsigndocumentFilename: string;
     /**
      * The name of the document that will be presented to Ezsignfoldersignerassociations
      * @type {string}
-     * @memberof EzsigndocumentRequest
+     * @memberof EzsigndocumentResponse
      */
     sEzsigndocumentName: string;
 }
 
-export function EzsigndocumentRequestFromJSON(json: any): EzsigndocumentRequest {
-    return EzsigndocumentRequestFromJSONTyped(json, false);
+export function EzsigndocumentResponseFromJSON(json: any): EzsigndocumentResponse {
+    return EzsigndocumentResponseFromJSONTyped(json, false);
 }
 
-export function EzsigndocumentRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentRequest {
+export function EzsigndocumentResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'eEzsigndocumentSource': json['eEzsigndocumentSource'],
-        'eEzsigndocumentFormat': json['eEzsigndocumentFormat'],
-        'sEzsigndocumentBase64': !exists(json, 'sEzsigndocumentBase64') ? undefined : json['sEzsigndocumentBase64'],
         'fkiEzsignfolderID': json['fkiEzsignfolderID'],
         'dtEzsigndocumentDuedate': json['dtEzsigndocumentDuedate'],
         'fkiLanguageID': json['fkiLanguageID'],
@@ -97,7 +74,7 @@ export function EzsigndocumentRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function EzsigndocumentRequestToJSON(value?: EzsigndocumentRequest | null): any {
+export function EzsigndocumentResponseToJSON(value?: EzsigndocumentResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -106,30 +83,12 @@ export function EzsigndocumentRequestToJSON(value?: EzsigndocumentRequest | null
     }
     return {
         
-        'eEzsigndocumentSource': value.eEzsigndocumentSource,
-        'eEzsigndocumentFormat': value.eEzsigndocumentFormat,
-        'sEzsigndocumentBase64': value.sEzsigndocumentBase64,
         'fkiEzsignfolderID': value.fkiEzsignfolderID,
         'dtEzsigndocumentDuedate': value.dtEzsigndocumentDuedate,
         'fkiLanguageID': value.fkiLanguageID,
         'sEzsigndocumentFilename': value.sEzsigndocumentFilename,
         'sEzsigndocumentName': value.sEzsigndocumentName,
     };
-}
-
-/**
-* @export
-* @enum {string}
-*/
-export enum EzsigndocumentRequestEEzsigndocumentSourceEnum {
-    Base64 = 'Base64'
-}
-/**
-* @export
-* @enum {string}
-*/
-export enum EzsigndocumentRequestEEzsigndocumentFormatEnum {
-    Pdf = 'Pdf'
 }
 
 

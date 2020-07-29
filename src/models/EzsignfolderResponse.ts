@@ -16,16 +16,16 @@ import { exists, mapValues } from '../runtime';
 /**
  * An Ezsignfolder Object
  * @export
- * @interface EzsignfolderRequest
+ * @interface EzsignfolderResponse
  */
-export interface EzsignfolderRequest {
+export interface EzsignfolderResponse {
     /**
      * The Ezsign Folder Type ID.
      * This value can be queried by the API and is also visible in the admin interface.
      * 
      * There are two types of Ezsignfoldertype. **User** and **Shared**. **User** can only be seen by the user who created the folder or its assistants. Access to **Shared** folders are configurable for access and email delivery. You should typically choose a **Shared** type here.
      * @type {number}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponse
      */
     fkiEzsignfoldertypeID: number;
     /**
@@ -34,34 +34,34 @@ export interface EzsignfolderRequest {
      * 2. Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**
      * 3. Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**
      * @type {number}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponse
      */
     fkiEzsigntsarequirementID: number;
     /**
      * The description of the Ezsign Folder
      * @type {string}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponse
      */
     sEzsignfolderDescription: string;
     /**
      * Somes extra notes about the eZsign Folder
      * @type {string}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponse
      */
     tEzsignfolderNote: string;
     /**
      * Frequency at which reminders will be sent to signers that haven't signed the documents
      * @type {string}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponse
      */
-    eEzsignfolderSendreminderfrequency: EzsignfolderRequestEEzsignfolderSendreminderfrequencyEnum;
+    eEzsignfolderSendreminderfrequency: EzsignfolderResponseEEzsignfolderSendreminderfrequencyEnum;
 }
 
-export function EzsignfolderRequestFromJSON(json: any): EzsignfolderRequest {
-    return EzsignfolderRequestFromJSONTyped(json, false);
+export function EzsignfolderResponseFromJSON(json: any): EzsignfolderResponse {
+    return EzsignfolderResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderRequest {
+export function EzsignfolderResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -75,7 +75,7 @@ export function EzsignfolderRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function EzsignfolderRequestToJSON(value?: EzsignfolderRequest | null): any {
+export function EzsignfolderResponseToJSON(value?: EzsignfolderResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -96,7 +96,7 @@ export function EzsignfolderRequestToJSON(value?: EzsignfolderRequest | null): a
 * @export
 * @enum {string}
 */
-export enum EzsignfolderRequestEEzsignfolderSendreminderfrequencyEnum {
+export enum EzsignfolderResponseEEzsignfolderSendreminderfrequencyEnum {
     None = 'None',
     Daily = 'Daily',
     Weekly = 'Weekly'

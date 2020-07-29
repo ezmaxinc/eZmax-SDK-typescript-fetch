@@ -13,50 +13,49 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    CommonResponse,
-    CommonResponseFromJSON,
-    CommonResponseFromJSONTyped,
-    CommonResponseToJSON,
-    CommonResponseObjDebug,
-    CommonResponseObjDebugFromJSON,
-    CommonResponseObjDebugFromJSONTyped,
-    CommonResponseObjDebugToJSON,
-    CommonResponseObjDebugPayload,
-    CommonResponseObjDebugPayloadFromJSON,
-    CommonResponseObjDebugPayloadFromJSONTyped,
-    CommonResponseObjDebugPayloadToJSON,
-} from './';
-
 /**
- * Response for the /1/object/ezsignfolder/getObject API Request
+ * An Attempt object
  * @export
- * @interface EzsignfolderGetObjectV1Response
+ * @interface AttemptResponse
  */
-export interface EzsignfolderGetObjectV1Response extends CommonResponse {
+export interface AttemptResponse {
     /**
-     * Payload for the /1/object/ezsignfolder/getObject API Request
-     * @type {object}
-     * @memberof EzsignfolderGetObjectV1Response
+     * Date and time of the attempt in UCT.
+     * @type {string}
+     * @memberof AttemptResponse
      */
-    mPayload: object;
+    dtAttemptStart: string;
+    /**
+     * The Success or Failure message of the attempt when we tried to call the URL to deliver the webhook event.
+     * @type {string}
+     * @memberof AttemptResponse
+     */
+    sAttemptResult: string;
+    /**
+     * The number of second it took to process the webhook or get an error
+     * @type {number}
+     * @memberof AttemptResponse
+     */
+    iAttemptDuration: number;
 }
 
-export function EzsignfolderGetObjectV1ResponseFromJSON(json: any): EzsignfolderGetObjectV1Response {
-    return EzsignfolderGetObjectV1ResponseFromJSONTyped(json, false);
+export function AttemptResponseFromJSON(json: any): AttemptResponse {
+    return AttemptResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderGetObjectV1Response {
+export function AttemptResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AttemptResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
-        ...CommonResponseFromJSONTyped(json, ignoreDiscriminator),
-        'mPayload': json['mPayload'],
+        
+        'dtAttemptStart': json['dtAttemptStart'],
+        'sAttemptResult': json['sAttemptResult'],
+        'iAttemptDuration': json['iAttemptDuration'],
     };
 }
 
-export function EzsignfolderGetObjectV1ResponseToJSON(value?: EzsignfolderGetObjectV1Response | null): any {
+export function AttemptResponseToJSON(value?: AttemptResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -64,8 +63,10 @@ export function EzsignfolderGetObjectV1ResponseToJSON(value?: EzsignfolderGetObj
         return null;
     }
     return {
-        ...CommonResponseToJSON(value),
-        'mPayload': value.mPayload,
+        
+        'dtAttemptStart': value.dtAttemptStart,
+        'sAttemptResult': value.sAttemptResult,
+        'iAttemptDuration': value.iAttemptDuration,
     };
 }
 

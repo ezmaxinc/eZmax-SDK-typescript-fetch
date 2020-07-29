@@ -4,6 +4,7 @@
 README.md
 package.json
 src/apis/ActivesessionApi.ts
+src/apis/EzsignWebhookApi.ts
 src/apis/EzsigndocumentApi.ts
 src/apis/EzsignfolderApi.ts
 src/apis/EzsignfoldersignerassociationApi.ts
@@ -12,11 +13,13 @@ src/apis/index.ts
 src/index.ts
 src/models/ActivesessionGetCurrentV1Response.ts
 src/models/ActivesessionGetCurrentV1ResponseMPayload.ts
+src/models/AttemptResponse.ts
 src/models/CommonResponse.ts
 src/models/CommonResponseError.ts
 src/models/CommonResponseObjDebug.ts
 src/models/CommonResponseObjDebugPayload.ts
 src/models/CommonResponseObjSQLQuery.ts
+src/models/CommonWebhook.ts
 src/models/EzsigndocumentCreateObjectV1Request.ts
 src/models/EzsigndocumentCreateObjectV1Response.ts
 src/models/EzsigndocumentCreateObjectV1ResponseMPayload.ts
@@ -26,6 +29,8 @@ src/models/EzsigndocumentEditObjectV1Response.ts
 src/models/EzsigndocumentGetObjectV1Response.ts
 src/models/EzsigndocumentRequest.ts
 src/models/EzsigndocumentRequestCompound.ts
+src/models/EzsigndocumentResponse.ts
+src/models/EzsigndocumentResponseCompound.ts
 src/models/EzsignfolderCreateObjectV1Request.ts
 src/models/EzsignfolderCreateObjectV1Response.ts
 src/models/EzsignfolderCreateObjectV1ResponseMPayload.ts
@@ -35,6 +40,8 @@ src/models/EzsignfolderEditObjectV1Response.ts
 src/models/EzsignfolderGetObjectV1Response.ts
 src/models/EzsignfolderRequest.ts
 src/models/EzsignfolderRequestCompound.ts
+src/models/EzsignfolderResponse.ts
+src/models/EzsignfolderResponseCompound.ts
 src/models/EzsignfolderSendV1Request.ts
 src/models/EzsignfolderSendV1Response.ts
 src/models/EzsignfoldersignerassociationCreateObjectV1Request.ts
@@ -58,6 +65,11 @@ src/models/EzsignsignatureRequestCompound.ts
 src/models/EzsignsignerRequest.ts
 src/models/EzsignsignerRequestCompound.ts
 src/models/EzsignsignerRequestCompoundContact.ts
+src/models/WebhookEzsignDocumentCompleted.ts
+src/models/WebhookEzsignDocumentCompletedAllOf.ts
+src/models/WebhookEzsignFolderCompleted.ts
+src/models/WebhookEzsignFolderCompletedAllOf.ts
+src/models/WebhookResponse.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json

@@ -14,49 +14,41 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    CommonResponse,
-    CommonResponseFromJSON,
-    CommonResponseFromJSONTyped,
-    CommonResponseToJSON,
-    CommonResponseObjDebug,
-    CommonResponseObjDebugFromJSON,
-    CommonResponseObjDebugFromJSONTyped,
-    CommonResponseObjDebugToJSON,
-    CommonResponseObjDebugPayload,
-    CommonResponseObjDebugPayloadFromJSON,
-    CommonResponseObjDebugPayloadFromJSONTyped,
-    CommonResponseObjDebugPayloadToJSON,
+    EzsignfolderResponseCompound,
+    EzsignfolderResponseCompoundFromJSON,
+    EzsignfolderResponseCompoundFromJSONTyped,
+    EzsignfolderResponseCompoundToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsigndocument/getObject API Request
+ * 
  * @export
- * @interface EzsigndocumentGetObjectV1Response
+ * @interface WebhookEzsignFolderCompletedAllOf
  */
-export interface EzsigndocumentGetObjectV1Response extends CommonResponse {
+export interface WebhookEzsignFolderCompletedAllOf {
     /**
-     * Payload for the /1/object/ezsigndocument/getObject API Request
-     * @type {object}
-     * @memberof EzsigndocumentGetObjectV1Response
+     * 
+     * @type {EzsignfolderResponseCompound}
+     * @memberof WebhookEzsignFolderCompletedAllOf
      */
-    mPayload: object;
+    objEzsignfolder: EzsignfolderResponseCompound;
 }
 
-export function EzsigndocumentGetObjectV1ResponseFromJSON(json: any): EzsigndocumentGetObjectV1Response {
-    return EzsigndocumentGetObjectV1ResponseFromJSONTyped(json, false);
+export function WebhookEzsignFolderCompletedAllOfFromJSON(json: any): WebhookEzsignFolderCompletedAllOf {
+    return WebhookEzsignFolderCompletedAllOfFromJSONTyped(json, false);
 }
 
-export function EzsigndocumentGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentGetObjectV1Response {
+export function WebhookEzsignFolderCompletedAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookEzsignFolderCompletedAllOf {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
-        ...CommonResponseFromJSONTyped(json, ignoreDiscriminator),
-        'mPayload': json['mPayload'],
+        
+        'objEzsignfolder': EzsignfolderResponseCompoundFromJSON(json['objEzsignfolder']),
     };
 }
 
-export function EzsigndocumentGetObjectV1ResponseToJSON(value?: EzsigndocumentGetObjectV1Response | null): any {
+export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFolderCompletedAllOf | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -64,8 +56,8 @@ export function EzsigndocumentGetObjectV1ResponseToJSON(value?: EzsigndocumentGe
         return null;
     }
     return {
-        ...CommonResponseToJSON(value),
-        'mPayload': value.mPayload,
+        
+        'objEzsignfolder': EzsignfolderResponseCompoundToJSON(value.objEzsignfolder),
     };
 }
 

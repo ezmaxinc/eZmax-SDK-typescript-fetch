@@ -14,49 +14,53 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    CommonResponse,
-    CommonResponseFromJSON,
-    CommonResponseFromJSONTyped,
-    CommonResponseToJSON,
-    CommonResponseObjDebug,
-    CommonResponseObjDebugFromJSON,
-    CommonResponseObjDebugFromJSONTyped,
-    CommonResponseObjDebugToJSON,
-    CommonResponseObjDebugPayload,
-    CommonResponseObjDebugPayloadFromJSON,
-    CommonResponseObjDebugPayloadFromJSONTyped,
-    CommonResponseObjDebugPayloadToJSON,
+    AttemptResponse,
+    AttemptResponseFromJSON,
+    AttemptResponseFromJSONTyped,
+    AttemptResponseToJSON,
+    WebhookResponse,
+    WebhookResponseFromJSON,
+    WebhookResponseFromJSONTyped,
+    WebhookResponseToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsigndocument/getObject API Request
+ * This is the base Webhook object
  * @export
- * @interface EzsigndocumentGetObjectV1Response
+ * @interface CommonWebhook
  */
-export interface EzsigndocumentGetObjectV1Response extends CommonResponse {
+export interface CommonWebhook {
     /**
-     * Payload for the /1/object/ezsigndocument/getObject API Request
-     * @type {object}
-     * @memberof EzsigndocumentGetObjectV1Response
+     * 
+     * @type {WebhookResponse}
+     * @memberof CommonWebhook
      */
-    mPayload: object;
+    objWebhook: WebhookResponse;
+    /**
+     * An array containing details of previous attempts that were made to deliver the message.
+     * The array is empty if it's the first attempt.
+     * @type {Array<AttemptResponse>}
+     * @memberof CommonWebhook
+     */
+    aObjAttempt: Array<AttemptResponse>;
 }
 
-export function EzsigndocumentGetObjectV1ResponseFromJSON(json: any): EzsigndocumentGetObjectV1Response {
-    return EzsigndocumentGetObjectV1ResponseFromJSONTyped(json, false);
+export function CommonWebhookFromJSON(json: any): CommonWebhook {
+    return CommonWebhookFromJSONTyped(json, false);
 }
 
-export function EzsigndocumentGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentGetObjectV1Response {
+export function CommonWebhookFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonWebhook {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
-        ...CommonResponseFromJSONTyped(json, ignoreDiscriminator),
-        'mPayload': json['mPayload'],
+        
+        'objWebhook': WebhookResponseFromJSON(json['objWebhook']),
+        'aObjAttempt': ((json['a_objAttempt'] as Array<any>).map(AttemptResponseFromJSON)),
     };
 }
 
-export function EzsigndocumentGetObjectV1ResponseToJSON(value?: EzsigndocumentGetObjectV1Response | null): any {
+export function CommonWebhookToJSON(value?: CommonWebhook | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -64,8 +68,9 @@ export function EzsigndocumentGetObjectV1ResponseToJSON(value?: EzsigndocumentGe
         return null;
     }
     return {
-        ...CommonResponseToJSON(value),
-        'mPayload': value.mPayload,
+        
+        'objWebhook': WebhookResponseToJSON(value.objWebhook),
+        'a_objAttempt': ((value.aObjAttempt as Array<any>).map(AttemptResponseToJSON)),
     };
 }
 

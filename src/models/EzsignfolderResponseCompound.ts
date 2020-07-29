@@ -14,29 +14,29 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    EzsigndocumentRequest,
-    EzsigndocumentRequestFromJSON,
-    EzsigndocumentRequestFromJSONTyped,
-    EzsigndocumentRequestToJSON,
+    EzsignfolderResponse,
+    EzsignfolderResponseFromJSON,
+    EzsignfolderResponseFromJSONTyped,
+    EzsignfolderResponseToJSON,
 } from './';
 
 /**
- * An Ezsigndocument Object and children to create a complete structure
+ * An Ezsignfolder Object and children to create a complete structure
  * @export
- * @interface EzsigndocumentRequestCompound
+ * @interface EzsignfolderResponseCompound
  */
-export interface EzsigndocumentRequestCompound extends EzsigndocumentRequest {
+export interface EzsignfolderResponseCompound extends EzsignfolderResponse {
 }
 
-export function EzsigndocumentRequestCompoundFromJSON(json: any): EzsigndocumentRequestCompound {
-    return EzsigndocumentRequestCompoundFromJSONTyped(json, false);
+export function EzsignfolderResponseCompoundFromJSON(json: any): EzsignfolderResponseCompound {
+    return EzsignfolderResponseCompoundFromJSONTyped(json, false);
 }
 
-export function EzsigndocumentRequestCompoundFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentRequestCompound {
+export function EzsignfolderResponseCompoundFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderResponseCompound {
     return json;
 }
 
-export function EzsigndocumentRequestCompoundToJSON(value?: EzsigndocumentRequestCompound | null): any {
+export function EzsignfolderResponseCompoundToJSON(value?: EzsignfolderResponseCompound | null): any {
     return value;
 }
 
