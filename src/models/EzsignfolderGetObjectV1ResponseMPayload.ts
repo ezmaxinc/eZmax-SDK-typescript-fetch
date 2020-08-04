@@ -14,37 +14,37 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    CommonResponse,
-    CommonResponseFromJSON,
-    CommonResponseFromJSONTyped,
-    CommonResponseToJSON,
-    CommonResponseObjDebug,
-    CommonResponseObjDebugFromJSON,
-    CommonResponseObjDebugFromJSONTyped,
-    CommonResponseObjDebugToJSON,
-    CommonResponseObjDebugPayload,
-    CommonResponseObjDebugPayloadFromJSON,
-    CommonResponseObjDebugPayloadFromJSONTyped,
-    CommonResponseObjDebugPayloadToJSON,
+    EzsignfolderResponse,
+    EzsignfolderResponseFromJSON,
+    EzsignfolderResponseFromJSONTyped,
+    EzsignfolderResponseToJSON,
+    FieldEEzsignfolderSendreminderfrequency,
+    FieldEEzsignfolderSendreminderfrequencyFromJSON,
+    FieldEEzsignfolderSendreminderfrequencyFromJSONTyped,
+    FieldEEzsignfolderSendreminderfrequencyToJSON,
+    FieldEEzsignfolderStep,
+    FieldEEzsignfolderStepFromJSON,
+    FieldEEzsignfolderStepFromJSONTyped,
+    FieldEEzsignfolderStepToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/deleteObject API Request
+ * Payload for the /1/object/ezsignfolder/getObject API Request
  * @export
- * @interface EzsignfolderDeleteObjectV1Response
+ * @interface EzsignfolderGetObjectV1ResponseMPayload
  */
-export interface EzsignfolderDeleteObjectV1Response extends CommonResponse {
+export interface EzsignfolderGetObjectV1ResponseMPayload extends EzsignfolderResponse {
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSON(json: any): EzsignfolderDeleteObjectV1Response {
-    return EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json, false);
+export function EzsignfolderGetObjectV1ResponseMPayloadFromJSON(json: any): EzsignfolderGetObjectV1ResponseMPayload {
+    return EzsignfolderGetObjectV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignfolderDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderDeleteObjectV1Response {
+export function EzsignfolderGetObjectV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderGetObjectV1ResponseMPayload {
     return json;
 }
 
-export function EzsignfolderDeleteObjectV1ResponseToJSON(value?: EzsignfolderDeleteObjectV1Response | null): any {
+export function EzsignfolderGetObjectV1ResponseMPayloadToJSON(value?: EzsignfolderGetObjectV1ResponseMPayload | null): any {
     return value;
 }
 

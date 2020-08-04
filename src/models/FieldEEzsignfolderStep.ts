@@ -12,46 +12,30 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
- * Generic Error Message
+ * The signature step of the Ezsignfolder.
  * @export
- * @interface CommonResponseError
+ * @enum {string}
  */
-export interface CommonResponseError {
-    /**
-     * More detail about the error
-     * @type {string}
-     * @memberof CommonResponseError
-     */
-    sErrorMessage: string;
+export enum FieldEEzsignfolderStep {
+    Unsent = 'Unsent',
+    Sent = 'Sent',
+    PartiallySigned = 'PartiallySigned',
+    Expired = 'Expired',
+    Signed = 'Signed',
+    Completed = 'Completed',
+    Archived = 'Archived'
 }
 
-export function CommonResponseErrorFromJSON(json: any): CommonResponseError {
-    return CommonResponseErrorFromJSONTyped(json, false);
+export function FieldEEzsignfolderStepFromJSON(json: any): FieldEEzsignfolderStep {
+    return FieldEEzsignfolderStepFromJSONTyped(json, false);
 }
 
-export function CommonResponseErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonResponseError {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'sErrorMessage': json['sErrorMessage'],
-    };
+export function FieldEEzsignfolderStepFromJSONTyped(json: any, ignoreDiscriminator: boolean): FieldEEzsignfolderStep {
+    return json as FieldEEzsignfolderStep;
 }
 
-export function CommonResponseErrorToJSON(value?: CommonResponseError | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'sErrorMessage': value.sErrorMessage,
-    };
+export function FieldEEzsignfolderStepToJSON(value?: FieldEEzsignfolderStep | null): any {
+    return value as any;
 }
-
 

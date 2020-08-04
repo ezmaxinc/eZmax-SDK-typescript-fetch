@@ -14,14 +14,6 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    CommonAudit,
-    CommonAuditFromJSON,
-    CommonAuditFromJSONTyped,
-    CommonAuditToJSON,
-    EzsigndocumentResponseAllOf,
-    EzsigndocumentResponseAllOfFromJSON,
-    EzsigndocumentResponseAllOfFromJSONTyped,
-    EzsigndocumentResponseAllOfToJSON,
     FieldEEzsigndocumentStep,
     FieldEEzsigndocumentStepFromJSON,
     FieldEEzsigndocumentStepFromJSONTyped,
@@ -29,21 +21,21 @@ import {
 } from './';
 
 /**
- * An Ezsigndocument Object
+ * 
  * @export
- * @interface EzsigndocumentResponse
+ * @interface EzsigndocumentResponseAllOf
  */
-export interface EzsigndocumentResponse {
+export interface EzsigndocumentResponseAllOf {
     /**
      * The unique ID of the Ezsignfolder
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     fkiEzsignfolderID: number;
     /**
      * The maximum date and time at which the document can be signed.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     dtEzsigndocumentDuedate: string;
     /**
@@ -53,126 +45,88 @@ export interface EzsigndocumentResponse {
      * 1. French
      * 2. English
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     fkiLanguageID: number;
     /**
      * The actual file name that will be used when downloading or attaching to an email.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     sEzsigndocumentFilename: string;
     /**
      * The name of the document that will be presented to Ezsignfoldersignerassociations
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     sEzsigndocumentName: string;
     /**
      * The unique ID of the Ezsigndocument
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     pkiEzsigndocumentID: number;
     /**
      * 
      * @type {FieldEEzsigndocumentStep}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     eEzsigndocumentStep: FieldEEzsigndocumentStep;
     /**
      * The date and time when the Ezsigndocument was first sent.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     dtEzsigndocumentFirstsend: string;
     /**
      * The date and time when the Ezsigndocument was sent the last time.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     dtEzsigndocumentLastsend: string;
     /**
      * The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder.
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     iEzsigndocumentOrder: number;
     /**
      * The number of pages in the Ezsigndocument.
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     iEzsigndocumentPagetotal: number;
     /**
      * The number of signatures that were signed in the document.
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     iEzsigndocumentSignaturesigned: number;
     /**
      * The number of total signatures that were requested in the Ezsigndocument.
      * @type {number}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     iEzsigndocumentSignaturetotal: number;
     /**
      * MD5 Hash of the initial PDF Document before signatures were applied to it.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     sEzsigndocumentMD5initial: string;
     /**
      * MD5 Hash of the final PDF Document after all signatures were applied to it.
      * @type {string}
-     * @memberof EzsigndocumentResponse
+     * @memberof EzsigndocumentResponseAllOf
      */
     sEzsigndocumentMD5signed: string;
-    /**
-     * The id of the User that created the object.
-     * @type {number}
-     * @memberof EzsigndocumentResponse
-     */
-    fkiUserIDCreated: number;
-    /**
-     * The id of the User that made the last modification on the object.
-     * @type {number}
-     * @memberof EzsigndocumentResponse
-     */
-    fkiUserIDModified: number;
-    /**
-     * The id of the API Key that created the object.
-     * @type {number}
-     * @memberof EzsigndocumentResponse
-     */
-    fkiApikeyIDCreated?: number;
-    /**
-     * The id of the API Key that made the last modification on the object.
-     * @type {number}
-     * @memberof EzsigndocumentResponse
-     */
-    fkiApikeyIDModified?: number;
-    /**
-     * Represent a Date Time.
-     * The timezone is the one configured in the User's profile.
-     * @type {string}
-     * @memberof EzsigndocumentResponse
-     */
-    dtCreatedDate: string;
-    /**
-     * Represent a Date Time.
-     * The timezone is the one configured in the User's profile.
-     * @type {string}
-     * @memberof EzsigndocumentResponse
-     */
-    dtModifiedDate: string;
 }
 
-export function EzsigndocumentResponseFromJSON(json: any): EzsigndocumentResponse {
-    return EzsigndocumentResponseFromJSONTyped(json, false);
+export function EzsigndocumentResponseAllOfFromJSON(json: any): EzsigndocumentResponseAllOf {
+    return EzsigndocumentResponseAllOfFromJSONTyped(json, false);
 }
 
-export function EzsigndocumentResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentResponse {
+export function EzsigndocumentResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentResponseAllOf {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -193,16 +147,10 @@ export function EzsigndocumentResponseFromJSONTyped(json: any, ignoreDiscriminat
         'iEzsigndocumentSignaturetotal': json['iEzsigndocumentSignaturetotal'],
         'sEzsigndocumentMD5initial': json['sEzsigndocumentMD5initial'],
         'sEzsigndocumentMD5signed': json['sEzsigndocumentMD5signed'],
-        'fkiUserIDCreated': json['fkiUserIDCreated'],
-        'fkiUserIDModified': json['fkiUserIDModified'],
-        'fkiApikeyIDCreated': !exists(json, 'fkiApikeyIDCreated') ? undefined : json['fkiApikeyIDCreated'],
-        'fkiApikeyIDModified': !exists(json, 'fkiApikeyIDModified') ? undefined : json['fkiApikeyIDModified'],
-        'dtCreatedDate': json['dtCreatedDate'],
-        'dtModifiedDate': json['dtModifiedDate'],
     };
 }
 
-export function EzsigndocumentResponseToJSON(value?: EzsigndocumentResponse | null): any {
+export function EzsigndocumentResponseAllOfToJSON(value?: EzsigndocumentResponseAllOf | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -226,12 +174,6 @@ export function EzsigndocumentResponseToJSON(value?: EzsigndocumentResponse | nu
         'iEzsigndocumentSignaturetotal': value.iEzsigndocumentSignaturetotal,
         'sEzsigndocumentMD5initial': value.sEzsigndocumentMD5initial,
         'sEzsigndocumentMD5signed': value.sEzsigndocumentMD5signed,
-        'fkiUserIDCreated': value.fkiUserIDCreated,
-        'fkiUserIDModified': value.fkiUserIDModified,
-        'fkiApikeyIDCreated': value.fkiApikeyIDCreated,
-        'fkiApikeyIDModified': value.fkiApikeyIDModified,
-        'dtCreatedDate': value.dtCreatedDate,
-        'dtModifiedDate': value.dtModifiedDate,
     };
 }
 

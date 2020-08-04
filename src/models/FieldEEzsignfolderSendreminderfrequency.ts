@@ -12,46 +12,26 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
 /**
- * Generic Error Message
+ * Frequency at which reminders will be sent to signers that haven't signed the documents
  * @export
- * @interface CommonResponseError
+ * @enum {string}
  */
-export interface CommonResponseError {
-    /**
-     * More detail about the error
-     * @type {string}
-     * @memberof CommonResponseError
-     */
-    sErrorMessage: string;
+export enum FieldEEzsignfolderSendreminderfrequency {
+    None = 'None',
+    Daily = 'Daily',
+    Weekly = 'Weekly'
 }
 
-export function CommonResponseErrorFromJSON(json: any): CommonResponseError {
-    return CommonResponseErrorFromJSONTyped(json, false);
+export function FieldEEzsignfolderSendreminderfrequencyFromJSON(json: any): FieldEEzsignfolderSendreminderfrequency {
+    return FieldEEzsignfolderSendreminderfrequencyFromJSONTyped(json, false);
 }
 
-export function CommonResponseErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonResponseError {
-    if ((json === undefined) || (json === null)) {
-        return json;
-    }
-    return {
-        
-        'sErrorMessage': json['sErrorMessage'],
-    };
+export function FieldEEzsignfolderSendreminderfrequencyFromJSONTyped(json: any, ignoreDiscriminator: boolean): FieldEEzsignfolderSendreminderfrequency {
+    return json as FieldEEzsignfolderSendreminderfrequency;
 }
 
-export function CommonResponseErrorToJSON(value?: CommonResponseError | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'sErrorMessage': value.sErrorMessage,
-    };
+export function FieldEEzsignfolderSendreminderfrequencyToJSON(value?: FieldEEzsignfolderSendreminderfrequency | null): any {
+    return value as any;
 }
-
 

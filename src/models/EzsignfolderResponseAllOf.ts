@@ -18,14 +18,18 @@ import {
     FieldEEzsignfolderSendreminderfrequencyFromJSON,
     FieldEEzsignfolderSendreminderfrequencyFromJSONTyped,
     FieldEEzsignfolderSendreminderfrequencyToJSON,
+    FieldEEzsignfolderStep,
+    FieldEEzsignfolderStepFromJSON,
+    FieldEEzsignfolderStepFromJSONTyped,
+    FieldEEzsignfolderStepToJSON,
 } from './';
 
 /**
- * An Ezsignfolder Object
+ * 
  * @export
- * @interface EzsignfolderRequest
+ * @interface EzsignfolderResponseAllOf
  */
-export interface EzsignfolderRequest {
+export interface EzsignfolderResponseAllOf {
     /**
      * The unique ID of the Ezsignfoldertype.
      * 
@@ -33,7 +37,7 @@ export interface EzsignfolderRequest {
      * 
      * There are two types of Ezsignfoldertype. **User** and **Shared**. **User** can only be seen by the user who created the folder or its assistants. Access to **Shared** folders are configurable for access and email delivery. You should typically choose a **Shared** type here.
      * @type {number}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponseAllOf
      */
     fkiEzsignfoldertypeID: number;
     /**
@@ -44,34 +48,68 @@ export interface EzsignfolderRequest {
      * 2. Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**
      * 3. Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**
      * @type {number}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponseAllOf
      */
     fkiEzsigntsarequirementID: number;
     /**
      * The description of the Ezsign Folder
      * @type {string}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponseAllOf
      */
     sEzsignfolderDescription: string;
     /**
      * Somes extra notes about the eZsign Folder
      * @type {string}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponseAllOf
      */
     tEzsignfolderNote: string;
     /**
      * 
      * @type {FieldEEzsignfolderSendreminderfrequency}
-     * @memberof EzsignfolderRequest
+     * @memberof EzsignfolderResponseAllOf
      */
     eEzsignfolderSendreminderfrequency: FieldEEzsignfolderSendreminderfrequency;
+    /**
+     * The unique ID of the Ezsignfolder
+     * @type {number}
+     * @memberof EzsignfolderResponseAllOf
+     */
+    pkiEzsignfolderID: number;
+    /**
+     * The date and time at which the Ezsign folder was sent the last time.
+     * @type {string}
+     * @memberof EzsignfolderResponseAllOf
+     */
+    dtEzsignfolderSentdate: string;
+    /**
+     * 
+     * @type {FieldEEzsignfolderStep}
+     * @memberof EzsignfolderResponseAllOf
+     */
+    eEzsignfolderStep: FieldEEzsignfolderStep;
+    /**
+     * The unique ID of the Language.
+     * 
+     * Valid values are:
+     * 1. French
+     * 2. English
+     * @type {number}
+     * @memberof EzsignfolderResponseAllOf
+     */
+    fkiLanguageID: number;
+    /**
+     * The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely.
+     * @type {string}
+     * @memberof EzsignfolderResponseAllOf
+     */
+    dtEzsignfolderClose: string;
 }
 
-export function EzsignfolderRequestFromJSON(json: any): EzsignfolderRequest {
-    return EzsignfolderRequestFromJSONTyped(json, false);
+export function EzsignfolderResponseAllOfFromJSON(json: any): EzsignfolderResponseAllOf {
+    return EzsignfolderResponseAllOfFromJSONTyped(json, false);
 }
 
-export function EzsignfolderRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderRequest {
+export function EzsignfolderResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderResponseAllOf {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -82,10 +120,15 @@ export function EzsignfolderRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'sEzsignfolderDescription': json['sEzsignfolderDescription'],
         'tEzsignfolderNote': json['tEzsignfolderNote'],
         'eEzsignfolderSendreminderfrequency': FieldEEzsignfolderSendreminderfrequencyFromJSON(json['eEzsignfolderSendreminderfrequency']),
+        'pkiEzsignfolderID': json['pkiEzsignfolderID'],
+        'dtEzsignfolderSentdate': json['dtEzsignfolderSentdate'],
+        'eEzsignfolderStep': FieldEEzsignfolderStepFromJSON(json['eEzsignfolderStep']),
+        'fkiLanguageID': json['fkiLanguageID'],
+        'dtEzsignfolderClose': json['dtEzsignfolderClose'],
     };
 }
 
-export function EzsignfolderRequestToJSON(value?: EzsignfolderRequest | null): any {
+export function EzsignfolderResponseAllOfToJSON(value?: EzsignfolderResponseAllOf | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -99,6 +142,11 @@ export function EzsignfolderRequestToJSON(value?: EzsignfolderRequest | null): a
         'sEzsignfolderDescription': value.sEzsignfolderDescription,
         'tEzsignfolderNote': value.tEzsignfolderNote,
         'eEzsignfolderSendreminderfrequency': FieldEEzsignfolderSendreminderfrequencyToJSON(value.eEzsignfolderSendreminderfrequency),
+        'pkiEzsignfolderID': value.pkiEzsignfolderID,
+        'dtEzsignfolderSentdate': value.dtEzsignfolderSentdate,
+        'eEzsignfolderStep': FieldEEzsignfolderStepToJSON(value.eEzsignfolderStep),
+        'fkiLanguageID': value.fkiLanguageID,
+        'dtEzsignfolderClose': value.dtEzsignfolderClose,
     };
 }
 
