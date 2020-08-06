@@ -13,42 +13,37 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    EzsignsignatureRequest,
-    EzsignsignatureRequestFromJSON,
-    EzsignsignatureRequestFromJSONTyped,
-    EzsignsignatureRequestToJSON,
-} from './';
-
 /**
- * Request for the /1/object/ezsignsignature/editObject API Request
+ * Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request
  * @export
- * @interface EzsignsignatureEditObjectV1Request
+ * @interface EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
  */
-export interface EzsignsignatureEditObjectV1Request {
+export interface EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload {
     /**
+     * The Url to login to the signing application.
      * 
-     * @type {EzsignsignatureRequest}
-     * @memberof EzsignsignatureEditObjectV1Request
+     * Url will expire after 30 minutes.
+     * @type {string}
+     * @memberof EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
      */
-    objEzsignsignature?: EzsignsignatureRequest;
+    sLoginUrl: string;
 }
 
-export function EzsignsignatureEditObjectV1RequestFromJSON(json: any): EzsignsignatureEditObjectV1Request {
-    return EzsignsignatureEditObjectV1RequestFromJSONTyped(json, false);
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSON(json: any): EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload {
+    return EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignsignatureEditObjectV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureEditObjectV1Request {
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignsignature': !exists(json, 'objEzsignsignature') ? undefined : EzsignsignatureRequestFromJSON(json['objEzsignsignature']),
+        'sLoginUrl': json['sLoginUrl'],
     };
 }
 
-export function EzsignsignatureEditObjectV1RequestToJSON(value?: EzsignsignatureEditObjectV1Request | null): any {
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadToJSON(value?: EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +52,7 @@ export function EzsignsignatureEditObjectV1RequestToJSON(value?: Ezsignsignature
     }
     return {
         
-        'objEzsignsignature': EzsignsignatureRequestToJSON(value.objEzsignsignature),
+        'sLoginUrl': value.sLoginUrl,
     };
 }
 

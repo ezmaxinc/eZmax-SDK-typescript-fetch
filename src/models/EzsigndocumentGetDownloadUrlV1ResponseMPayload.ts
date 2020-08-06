@@ -13,42 +13,37 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    EzsignsignatureRequest,
-    EzsignsignatureRequestFromJSON,
-    EzsignsignatureRequestFromJSONTyped,
-    EzsignsignatureRequestToJSON,
-} from './';
-
 /**
- * Request for the /1/object/ezsignsignature/editObject API Request
+ * Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request
  * @export
- * @interface EzsignsignatureEditObjectV1Request
+ * @interface EzsigndocumentGetDownloadUrlV1ResponseMPayload
  */
-export interface EzsignsignatureEditObjectV1Request {
+export interface EzsigndocumentGetDownloadUrlV1ResponseMPayload {
     /**
+     * The Url to the requested document.
      * 
-     * @type {EzsignsignatureRequest}
-     * @memberof EzsignsignatureEditObjectV1Request
+     * Url will expire after 5 minutes.
+     * @type {string}
+     * @memberof EzsigndocumentGetDownloadUrlV1ResponseMPayload
      */
-    objEzsignsignature?: EzsignsignatureRequest;
+    sDownloadUrl: string;
 }
 
-export function EzsignsignatureEditObjectV1RequestFromJSON(json: any): EzsignsignatureEditObjectV1Request {
-    return EzsignsignatureEditObjectV1RequestFromJSONTyped(json, false);
+export function EzsigndocumentGetDownloadUrlV1ResponseMPayloadFromJSON(json: any): EzsigndocumentGetDownloadUrlV1ResponseMPayload {
+    return EzsigndocumentGetDownloadUrlV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignsignatureEditObjectV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureEditObjectV1Request {
+export function EzsigndocumentGetDownloadUrlV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentGetDownloadUrlV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignsignature': !exists(json, 'objEzsignsignature') ? undefined : EzsignsignatureRequestFromJSON(json['objEzsignsignature']),
+        'sDownloadUrl': json['sDownloadUrl'],
     };
 }
 
-export function EzsignsignatureEditObjectV1RequestToJSON(value?: EzsignsignatureEditObjectV1Request | null): any {
+export function EzsigndocumentGetDownloadUrlV1ResponseMPayloadToJSON(value?: EzsigndocumentGetDownloadUrlV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +52,7 @@ export function EzsignsignatureEditObjectV1RequestToJSON(value?: Ezsignsignature
     }
     return {
         
-        'objEzsignsignature': EzsignsignatureRequestToJSON(value.objEzsignsignature),
+        'sDownloadUrl': value.sDownloadUrl,
     };
 }
 

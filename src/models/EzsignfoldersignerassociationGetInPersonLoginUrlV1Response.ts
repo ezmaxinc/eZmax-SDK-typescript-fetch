@@ -26,41 +26,41 @@ import {
     CommonResponseObjDebugPayloadFromJSON,
     CommonResponseObjDebugPayloadFromJSONTyped,
     CommonResponseObjDebugPayloadToJSON,
-    EzsignfolderCreateObjectV1ResponseMPayload,
-    EzsignfolderCreateObjectV1ResponseMPayloadFromJSON,
-    EzsignfolderCreateObjectV1ResponseMPayloadFromJSONTyped,
-    EzsignfolderCreateObjectV1ResponseMPayloadToJSON,
+    EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload,
+    EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSON,
+    EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSONTyped,
+    EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/createObject API Request
+ * Response for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request
  * @export
- * @interface EzsignfolderCreateObjectV1Response
+ * @interface EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
  */
-export interface EzsignfolderCreateObjectV1Response extends CommonResponse {
+export interface EzsignfoldersignerassociationGetInPersonLoginUrlV1Response extends CommonResponse {
     /**
      * 
-     * @type {EzsignfolderCreateObjectV1ResponseMPayload}
-     * @memberof EzsignfolderCreateObjectV1Response
+     * @type {EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload}
+     * @memberof EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
      */
-    mPayload: EzsignfolderCreateObjectV1ResponseMPayload;
+    mPayload: EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload;
 }
 
-export function EzsignfolderCreateObjectV1ResponseFromJSON(json: any): EzsignfolderCreateObjectV1Response {
-    return EzsignfolderCreateObjectV1ResponseFromJSONTyped(json, false);
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseFromJSON(json: any): EzsignfoldersignerassociationGetInPersonLoginUrlV1Response {
+    return EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderCreateObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderCreateObjectV1Response {
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfoldersignerassociationGetInPersonLoginUrlV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         ...CommonResponseFromJSONTyped(json, ignoreDiscriminator),
-        'mPayload': EzsignfolderCreateObjectV1ResponseMPayloadFromJSON(json['mPayload']),
+        'mPayload': EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadFromJSON(json['mPayload']),
     };
 }
 
-export function EzsignfolderCreateObjectV1ResponseToJSON(value?: EzsignfolderCreateObjectV1Response | null): any {
+export function EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseToJSON(value?: EzsignfoldersignerassociationGetInPersonLoginUrlV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -69,7 +69,7 @@ export function EzsignfolderCreateObjectV1ResponseToJSON(value?: EzsignfolderCre
     }
     return {
         ...CommonResponseToJSON(value),
-        'mPayload': EzsignfolderCreateObjectV1ResponseMPayloadToJSON(value.mPayload),
+        'mPayload': EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayloadToJSON(value.mPayload),
     };
 }
 
