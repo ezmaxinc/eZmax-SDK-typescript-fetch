@@ -12,6 +12,7 @@ export * from './CommonWebhook';
 export * from './ContactRequest';
 export * from './ContactRequestCompound';
 export * from './ContactRequestCompoundAllOf';
+export * from './ContactinformationsRequest';
 export * from './ContactinformationsRequestCompound';
 export * from './EmailRequest';
 export * from './EzsigndocumentCreateObjectV1Request';

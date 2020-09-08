@@ -25,6 +25,7 @@ src/models/CommonWebhook.ts
 src/models/ContactRequest.ts
 src/models/ContactRequestCompound.ts
 src/models/ContactRequestCompoundAllOf.ts
+src/models/ContactinformationsRequest.ts
 src/models/ContactinformationsRequestCompound.ts
 src/models/EmailRequest.ts
 src/models/EzsigndocumentCreateObjectV1Request.ts
