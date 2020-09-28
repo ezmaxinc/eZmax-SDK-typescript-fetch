@@ -3,6 +3,8 @@ export * from './ActivesessionGetCurrentV1ResponseMPayload';
 export * from './AddressRequest';
 export * from './AttemptResponse';
 export * from './CommonAudit';
+export * from './CommonGetAutocompleteV1Response';
+export * from './CommonGetAutocompleteV1ResponseMPayload';
 export * from './CommonResponse';
 export * from './CommonResponseError';
 export * from './CommonResponseObjDebug';

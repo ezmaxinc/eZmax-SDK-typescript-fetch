@@ -14,6 +14,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    CommonGetAutocompleteV1ResponseMPayload,
+    CommonGetAutocompleteV1ResponseMPayloadFromJSON,
+    CommonGetAutocompleteV1ResponseMPayloadFromJSONTyped,
+    CommonGetAutocompleteV1ResponseMPayloadToJSON,
     CommonResponse,
     CommonResponseFromJSON,
     CommonResponseFromJSONTyped,
@@ -29,34 +33,34 @@ import {
 } from './';
 
 /**
- * Response for the /1/object/ezsignsignature/getObject API Request
+ * Response for the /1/object/xxx/getAutocomplete API Request
  * @export
- * @interface EzsignsignatureGetObjectV1Response
+ * @interface CommonGetAutocompleteV1Response
  */
-export interface EzsignsignatureGetObjectV1Response extends CommonResponse {
+export interface CommonGetAutocompleteV1Response extends CommonResponse {
     /**
-     * Payload for the /1/object/ezsignsignature/getObject API Request
-     * @type {object}
-     * @memberof EzsignsignatureGetObjectV1Response
+     * 
+     * @type {Array<CommonGetAutocompleteV1ResponseMPayload>}
+     * @memberof CommonGetAutocompleteV1Response
      */
-    mPayload: object;
+    mPayload: Array<CommonGetAutocompleteV1ResponseMPayload>;
 }
 
-export function EzsignsignatureGetObjectV1ResponseFromJSON(json: any): EzsignsignatureGetObjectV1Response {
-    return EzsignsignatureGetObjectV1ResponseFromJSONTyped(json, false);
+export function CommonGetAutocompleteV1ResponseFromJSON(json: any): CommonGetAutocompleteV1Response {
+    return CommonGetAutocompleteV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignsignatureGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureGetObjectV1Response {
+export function CommonGetAutocompleteV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonGetAutocompleteV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         ...CommonResponseFromJSONTyped(json, ignoreDiscriminator),
-        'mPayload': json['mPayload'],
+        'mPayload': ((json['mPayload'] as Array<any>).map(CommonGetAutocompleteV1ResponseMPayloadFromJSON)),
     };
 }
 
-export function EzsignsignatureGetObjectV1ResponseToJSON(value?: EzsignsignatureGetObjectV1Response | null): any {
+export function CommonGetAutocompleteV1ResponseToJSON(value?: CommonGetAutocompleteV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -65,7 +69,7 @@ export function EzsignsignatureGetObjectV1ResponseToJSON(value?: Ezsignsignature
     }
     return {
         ...CommonResponseToJSON(value),
-        'mPayload': value.mPayload,
+        'mPayload': ((value.mPayload as Array<any>).map(CommonGetAutocompleteV1ResponseMPayloadToJSON)),
     };
 }
 

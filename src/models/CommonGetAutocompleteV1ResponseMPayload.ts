@@ -14,45 +14,48 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * An Ezsignfoldersignerassociation Object
+ * Generic Autocomplete Response
  * @export
- * @interface EzsignfoldersignerassociationRequest
+ * @interface CommonGetAutocompleteV1ResponseMPayload
  */
-export interface EzsignfoldersignerassociationRequest {
+export interface CommonGetAutocompleteV1ResponseMPayload {
     /**
-     * A reference to a valid User.
-     * 
-     * This is only used if the signatory will be a user from the system.
-     * @type {number}
-     * @memberof EzsignfoldersignerassociationRequest
+     * The Category (ie group) for the dropdown or an empty string if not categorized
+     * @type {string}
+     * @memberof CommonGetAutocompleteV1ResponseMPayload
      */
-    fkiUserID?: number;
+    group: string;
     /**
-     * A reference to a valid Ezsignfolder.
-     * 
-     * That value is returned after a successful Ezsignfolder Creation.
-     * @type {number}
-     * @memberof EzsignfoldersignerassociationRequest
+     * The Unique ID of the element
+     * @type {string}
+     * @memberof CommonGetAutocompleteV1ResponseMPayload
      */
-    fkiEzsignfolderID: number;
+    id: string;
+    /**
+     * The Description of the element
+     * @type {string}
+     * @memberof CommonGetAutocompleteV1ResponseMPayload
+     */
+    option: string;
 }
 
-export function EzsignfoldersignerassociationRequestFromJSON(json: any): EzsignfoldersignerassociationRequest {
-    return EzsignfoldersignerassociationRequestFromJSONTyped(json, false);
+export function CommonGetAutocompleteV1ResponseMPayloadFromJSON(json: any): CommonGetAutocompleteV1ResponseMPayload {
+    return CommonGetAutocompleteV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignfoldersignerassociationRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfoldersignerassociationRequest {
+export function CommonGetAutocompleteV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonGetAutocompleteV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'fkiUserID': !exists(json, 'fkiUserID') ? undefined : json['fkiUserID'],
-        'fkiEzsignfolderID': json['fkiEzsignfolderID'],
+        'group': json['group'],
+        'id': json['id'],
+        'option': json['option'],
     };
 }
 
-export function EzsignfoldersignerassociationRequestToJSON(value?: EzsignfoldersignerassociationRequest | null): any {
+export function CommonGetAutocompleteV1ResponseMPayloadToJSON(value?: CommonGetAutocompleteV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -61,8 +64,9 @@ export function EzsignfoldersignerassociationRequestToJSON(value?: Ezsignfolders
     }
     return {
         
-        'fkiUserID': value.fkiUserID,
-        'fkiEzsignfolderID': value.fkiEzsignfolderID,
+        'group': value.group,
+        'id': value.id,
+        'option': value.option,
     };
 }
 
