@@ -20,25 +20,30 @@ import {
     CommonGetAutocompleteV1ResponseToJSON,
 } from '../models';
 
-export interface PeriodGetAutocompleteV1Request {
-    sSelector: PeriodGetAutocompleteV1SSelectorEnum;
+export interface FranchisebrokerGetAutocompleteV1Request {
+    sSelector: FranchisebrokerGetAutocompleteV1SSelectorEnum;
+    sQuery?: string;
 }
 
 /**
  * 
  */
-export class PeriodApi extends runtime.BaseAPI {
+export class FranchisebrokerApi extends runtime.BaseAPI {
 
     /**
-     * Get the list of Periods to be used in a dropdown or autocomplete control.
-     * Retrieve Periods and IDs
+     * Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
+     * Retrieve Franchisebrokers and IDs
      */
-    async periodGetAutocompleteV1Raw(requestParameters: PeriodGetAutocompleteV1Request): Promise<runtime.ApiResponse<CommonGetAutocompleteV1Response>> {
+    async franchisebrokerGetAutocompleteV1Raw(requestParameters: FranchisebrokerGetAutocompleteV1Request): Promise<runtime.ApiResponse<CommonGetAutocompleteV1Response>> {
         if (requestParameters.sSelector === null || requestParameters.sSelector === undefined) {
-            throw new runtime.RequiredError('sSelector','Required parameter requestParameters.sSelector was null or undefined when calling periodGetAutocompleteV1.');
+            throw new runtime.RequiredError('sSelector','Required parameter requestParameters.sSelector was null or undefined when calling franchisebrokerGetAutocompleteV1.');
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.sQuery !== undefined) {
+            queryParameters['sQuery'] = requestParameters.sQuery;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -47,7 +52,7 @@ export class PeriodApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/1/object/period/getAutocomplete/{sSelector}`.replace(`{${"sSelector"}}`, encodeURIComponent(String(requestParameters.sSelector))),
+            path: `/1/object/franchisebroker/getAutocomplete/{sSelector}`.replace(`{${"sSelector"}}`, encodeURIComponent(String(requestParameters.sSelector))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -57,11 +62,11 @@ export class PeriodApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get the list of Periods to be used in a dropdown or autocomplete control.
-     * Retrieve Periods and IDs
+     * Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
+     * Retrieve Franchisebrokers and IDs
      */
-    async periodGetAutocompleteV1(requestParameters: PeriodGetAutocompleteV1Request): Promise<CommonGetAutocompleteV1Response> {
-        const response = await this.periodGetAutocompleteV1Raw(requestParameters);
+    async franchisebrokerGetAutocompleteV1(requestParameters: FranchisebrokerGetAutocompleteV1Request): Promise<CommonGetAutocompleteV1Response> {
+        const response = await this.franchisebrokerGetAutocompleteV1Raw(requestParameters);
         return await response.value();
     }
 
@@ -71,9 +76,7 @@ export class PeriodApi extends runtime.BaseAPI {
     * @export
     * @enum {string}
     */
-export enum PeriodGetAutocompleteV1SSelectorEnum {
-    ActiveNormal = 'ActiveNormal',
-    ActiveNormalAndEndOfYear = 'ActiveNormalAndEndOfYear',
-    AllNormal = 'AllNormal',
-    AllNormalAndEndOfYear = 'AllNormalAndEndOfYear'
+export enum FranchisebrokerGetAutocompleteV1SSelectorEnum {
+    Active = 'Active',
+    All = 'All'
 }

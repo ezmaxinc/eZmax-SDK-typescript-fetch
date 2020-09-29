@@ -1,4 +1,4 @@
-## ezmaxinc-sdk-typescrit-fetch@1.0.15
+## ezmaxinc-sdk-typescrit-fetch@1.0.16
 
 This generator creates TypeScript/JavaScript client that utilizes [Fetch API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the following environments:
 
@@ -36,7 +36,7 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install ezmaxinc-sdk-typescrit-fetch@1.0.15 --save
+npm install ezmaxinc-sdk-typescrit-fetch@1.0.16 --save
 ```
 
 _unPublished (not recommended):_
