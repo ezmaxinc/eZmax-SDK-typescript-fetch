@@ -20,23 +20,23 @@ import {
     CommonGetAutocompleteV1ResponseToJSON,
 } from '../models';
 
-export interface FranchisebrokerGetAutocompleteV1Request {
-    sSelector: FranchisebrokerGetAutocompleteV1SSelectorEnum;
+export interface FranchiseofficeGetAutocompleteV1Request {
+    sSelector: FranchiseofficeGetAutocompleteV1SSelectorEnum;
     sQuery?: string;
 }
 
 /**
  * 
  */
-export class FranchisebrokerApi extends runtime.BaseAPI {
+export class FranchiseofficeApi extends runtime.BaseAPI {
 
     /**
-     * Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
-     * Retrieve Franchisebrokers and IDs
+     * Get the list of Franchiseoffices to be used in a dropdown or autocomplete control.
+     * Retrieve Franchiseoffices and IDs
      */
-    async franchisebrokerGetAutocompleteV1Raw(requestParameters: FranchisebrokerGetAutocompleteV1Request): Promise<runtime.ApiResponse<CommonGetAutocompleteV1Response>> {
+    async franchiseofficeGetAutocompleteV1Raw(requestParameters: FranchiseofficeGetAutocompleteV1Request): Promise<runtime.ApiResponse<CommonGetAutocompleteV1Response>> {
         if (requestParameters.sSelector === null || requestParameters.sSelector === undefined) {
-            throw new runtime.RequiredError('sSelector','Required parameter requestParameters.sSelector was null or undefined when calling franchisebrokerGetAutocompleteV1.');
+            throw new runtime.RequiredError('sSelector','Required parameter requestParameters.sSelector was null or undefined when calling franchiseofficeGetAutocompleteV1.');
         }
 
         const queryParameters: any = {};
@@ -52,7 +52,7 @@ export class FranchisebrokerApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/1/object/franchisebroker/getAutocomplete/{sSelector}`.replace(`{${"sSelector"}}`, encodeURIComponent(String(requestParameters.sSelector))),
+            path: `/1/object/franchiseoffice/getAutocomplete/{sSelector}`.replace(`{${"sSelector"}}`, encodeURIComponent(String(requestParameters.sSelector))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -62,11 +62,11 @@ export class FranchisebrokerApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get the list of Franchisebrokers to be used in a dropdown or autocomplete control.
-     * Retrieve Franchisebrokers and IDs
+     * Get the list of Franchiseoffices to be used in a dropdown or autocomplete control.
+     * Retrieve Franchiseoffices and IDs
      */
-    async franchisebrokerGetAutocompleteV1(requestParameters: FranchisebrokerGetAutocompleteV1Request): Promise<CommonGetAutocompleteV1Response> {
-        const response = await this.franchisebrokerGetAutocompleteV1Raw(requestParameters);
+    async franchiseofficeGetAutocompleteV1(requestParameters: FranchiseofficeGetAutocompleteV1Request): Promise<CommonGetAutocompleteV1Response> {
+        const response = await this.franchiseofficeGetAutocompleteV1Raw(requestParameters);
         return await response.value();
     }
 
@@ -76,7 +76,7 @@ export class FranchisebrokerApi extends runtime.BaseAPI {
     * @export
     * @enum {string}
     */
-export enum FranchisebrokerGetAutocompleteV1SSelectorEnum {
+export enum FranchiseofficeGetAutocompleteV1SSelectorEnum {
     Active = 'Active',
     All = 'All'
 }

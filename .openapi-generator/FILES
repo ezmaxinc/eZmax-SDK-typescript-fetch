@@ -9,6 +9,7 @@ src/apis/EzsignfolderApi.ts
 src/apis/EzsignfoldersignerassociationApi.ts
 src/apis/EzsignsignatureApi.ts
 src/apis/FranchisebrokerApi.ts
+src/apis/FranchiseofficeApi.ts
 src/apis/FranchisereferalincomeApi.ts
 src/apis/PeriodApi.ts
 src/apis/index.ts
