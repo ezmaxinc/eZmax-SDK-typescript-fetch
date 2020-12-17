@@ -29,30 +29,30 @@ import {
 } from './';
 
 /**
- * Response for the /1/object/ezsignsignature/deleteObject API Request
+ * Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate API Request
  * @export
- * @interface EzsignsignatureDeleteObjectV1Response
+ * @interface EzsigndocumentApplyEzsigntemplateV1Response
  */
-export interface EzsignsignatureDeleteObjectV1Response {
+export interface EzsigndocumentApplyEzsigntemplateV1Response {
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignsignatureDeleteObjectV1Response
+     * @memberof EzsigndocumentApplyEzsigntemplateV1Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignsignatureDeleteObjectV1Response
+     * @memberof EzsigndocumentApplyEzsigntemplateV1Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignsignatureDeleteObjectV1ResponseFromJSON(json: any): EzsignsignatureDeleteObjectV1Response {
-    return EzsignsignatureDeleteObjectV1ResponseFromJSONTyped(json, false);
+export function EzsigndocumentApplyEzsigntemplateV1ResponseFromJSON(json: any): EzsigndocumentApplyEzsigntemplateV1Response {
+    return EzsigndocumentApplyEzsigntemplateV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignsignatureDeleteObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureDeleteObjectV1Response {
+export function EzsigndocumentApplyEzsigntemplateV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsigndocumentApplyEzsigntemplateV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -63,7 +63,7 @@ export function EzsignsignatureDeleteObjectV1ResponseFromJSONTyped(json: any, ig
     };
 }
 
-export function EzsignsignatureDeleteObjectV1ResponseToJSON(value?: EzsignsignatureDeleteObjectV1Response | null): any {
+export function EzsigndocumentApplyEzsigntemplateV1ResponseToJSON(value?: EzsigndocumentApplyEzsigntemplateV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }

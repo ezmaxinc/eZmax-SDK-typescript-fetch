@@ -13,76 +13,67 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    FieldEPhoneType,
-    FieldEPhoneTypeFromJSON,
-    FieldEPhoneTypeFromJSONTyped,
-    FieldEPhoneTypeToJSON,
-} from './';
-
 /**
- * A Phone Object
+ * Request for the /1/module/user/createEzsignuser API Request
  * @export
- * @interface PhoneRequest
+ * @interface UserCreateEzsignuserV1Request
  */
-export interface PhoneRequest {
+export interface UserCreateEzsignuserV1Request {
     /**
-     * The unique ID of the Phonetype.
+     * The unique ID of the Language.
      * 
      * Valid values:
      * 
      * |Value|Description|
      * |-|-|
-     * |1|Office|
-     * |2|Home|
-     * |3|Mobile|
-     * |4|Fax|
-     * |5|Pager|
-     * |6|Toll Free|
+     * |1|French|
+     * |2|English|
      * @type {number}
-     * @memberof PhoneRequest
+     * @memberof UserCreateEzsignuserV1Request
      */
-    fkiPhonetypeID: number;
+    fkiLanguageID: number;
     /**
-     * 
-     * @type {FieldEPhoneType}
-     * @memberof PhoneRequest
+     * The First name of the user
+     * @type {string}
+     * @memberof UserCreateEzsignuserV1Request
      */
-    ePhoneType: FieldEPhoneType;
+    sUserFirstname: string;
+    /**
+     * The Last name of the user
+     * @type {string}
+     * @memberof UserCreateEzsignuserV1Request
+     */
+    sUserLastname: string;
+    /**
+     * The email address.
+     * @type {string}
+     * @memberof UserCreateEzsignuserV1Request
+     */
+    sEmailAddress: string;
     /**
      * The region of the phone number. (For a North America Number only)
      * 
      * The region is the "514" section in this sample phone number: (514) 990-1516 x123
      * @type {string}
-     * @memberof PhoneRequest
+     * @memberof UserCreateEzsignuserV1Request
      */
-    sPhoneRegion?: string;
+    sPhoneRegion: string;
     /**
      * The exchange of the phone number. (For a North America Number only)
      * 
      * The exchange is the "990" section in this sample phone number: (514) 990-1516 x123
      * @type {string}
-     * @memberof PhoneRequest
+     * @memberof UserCreateEzsignuserV1Request
      */
-    sPhoneExchange?: string;
+    sPhoneExchange: string;
     /**
      * The number of the phone number. (For a North America Number only)
      * 
      * The number is the "1516" section in this sample phone number: (514) 990-1516 x123
      * @type {string}
-     * @memberof PhoneRequest
+     * @memberof UserCreateEzsignuserV1Request
      */
-    sPhoneNumber?: string;
-    /**
-     * The international phone number. (For phone numbers outside of North)
-     * 
-     * Do not specify the "011" part of the phone number used to dial an international phone number from North America.
-     * 
-     * For example for this sample phone number "+442071838750", you would send "442071838750" without the "+" sign.
-     * @type {string}
-     * @memberof PhoneRequest
-     */
-    sPhoneInternational?: string;
+    sPhoneNumber: string;
     /**
      * The extension of the phone number.
      * 
@@ -90,32 +81,33 @@ export interface PhoneRequest {
      * 
      * It can also be used with international phone numbers
      * @type {string}
-     * @memberof PhoneRequest
+     * @memberof UserCreateEzsignuserV1Request
      */
     sPhoneExtension?: string;
 }
 
-export function PhoneRequestFromJSON(json: any): PhoneRequest {
-    return PhoneRequestFromJSONTyped(json, false);
+export function UserCreateEzsignuserV1RequestFromJSON(json: any): UserCreateEzsignuserV1Request {
+    return UserCreateEzsignuserV1RequestFromJSONTyped(json, false);
 }
 
-export function PhoneRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): PhoneRequest {
+export function UserCreateEzsignuserV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserCreateEzsignuserV1Request {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'fkiPhonetypeID': json['fkiPhonetypeID'],
-        'ePhoneType': FieldEPhoneTypeFromJSON(json['ePhoneType']),
-        'sPhoneRegion': !exists(json, 'sPhoneRegion') ? undefined : json['sPhoneRegion'],
-        'sPhoneExchange': !exists(json, 'sPhoneExchange') ? undefined : json['sPhoneExchange'],
-        'sPhoneNumber': !exists(json, 'sPhoneNumber') ? undefined : json['sPhoneNumber'],
-        'sPhoneInternational': !exists(json, 'sPhoneInternational') ? undefined : json['sPhoneInternational'],
+        'fkiLanguageID': json['fkiLanguageID'],
+        'sUserFirstname': json['sUserFirstname'],
+        'sUserLastname': json['sUserLastname'],
+        'sEmailAddress': json['sEmailAddress'],
+        'sPhoneRegion': json['sPhoneRegion'],
+        'sPhoneExchange': json['sPhoneExchange'],
+        'sPhoneNumber': json['sPhoneNumber'],
         'sPhoneExtension': !exists(json, 'sPhoneExtension') ? undefined : json['sPhoneExtension'],
     };
 }
 
-export function PhoneRequestToJSON(value?: PhoneRequest | null): any {
+export function UserCreateEzsignuserV1RequestToJSON(value?: UserCreateEzsignuserV1Request | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -124,12 +116,13 @@ export function PhoneRequestToJSON(value?: PhoneRequest | null): any {
     }
     return {
         
-        'fkiPhonetypeID': value.fkiPhonetypeID,
-        'ePhoneType': FieldEPhoneTypeToJSON(value.ePhoneType),
+        'fkiLanguageID': value.fkiLanguageID,
+        'sUserFirstname': value.sUserFirstname,
+        'sUserLastname': value.sUserLastname,
+        'sEmailAddress': value.sEmailAddress,
         'sPhoneRegion': value.sPhoneRegion,
         'sPhoneExchange': value.sPhoneExchange,
         'sPhoneNumber': value.sPhoneNumber,
-        'sPhoneInternational': value.sPhoneInternational,
         'sPhoneExtension': value.sPhoneExtension,
     };
 }

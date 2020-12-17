@@ -14,36 +14,41 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * Payload for the /1/object/ezsignfolder/editObject API Request
+ * Payload for the /1/module/user/createEzsignuser API Request
  * @export
- * @interface EzsignfolderCreateObjectV1ResponseMPayload
+ * @interface UserCreateEzsignuserV1ResponseMPayload
  */
-export interface EzsignfolderCreateObjectV1ResponseMPayload {
+export interface UserCreateEzsignuserV1ResponseMPayload {
     /**
-     * An array of unique IDs representing the object that were requested to be created.
-     * 
-     * They are returned in the same order as the array containing the objects to be created that was sent in the request.
-     * @type {Array<number>}
-     * @memberof EzsignfolderCreateObjectV1ResponseMPayload
+     * An array of email addresses that succeeded.
+     * @type {Array<string>}
+     * @memberof UserCreateEzsignuserV1ResponseMPayload
      */
-    aPkiEzsignfolderID: Array<number>;
+    aSEmailAddressSuccess: Array<string>;
+    /**
+     * An array of email addresses that failed.
+     * @type {Array<string>}
+     * @memberof UserCreateEzsignuserV1ResponseMPayload
+     */
+    aSEmailAddressFailure: Array<string>;
 }
 
-export function EzsignfolderCreateObjectV1ResponseMPayloadFromJSON(json: any): EzsignfolderCreateObjectV1ResponseMPayload {
-    return EzsignfolderCreateObjectV1ResponseMPayloadFromJSONTyped(json, false);
+export function UserCreateEzsignuserV1ResponseMPayloadFromJSON(json: any): UserCreateEzsignuserV1ResponseMPayload {
+    return UserCreateEzsignuserV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function EzsignfolderCreateObjectV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderCreateObjectV1ResponseMPayload {
+export function UserCreateEzsignuserV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserCreateEzsignuserV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'aPkiEzsignfolderID': json['a_pkiEzsignfolderID'],
+        'aSEmailAddressSuccess': json['a_sEmailAddressSuccess'],
+        'aSEmailAddressFailure': json['a_sEmailAddressFailure'],
     };
 }
 
-export function EzsignfolderCreateObjectV1ResponseMPayloadToJSON(value?: EzsignfolderCreateObjectV1ResponseMPayload | null): any {
+export function UserCreateEzsignuserV1ResponseMPayloadToJSON(value?: UserCreateEzsignuserV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -52,7 +57,8 @@ export function EzsignfolderCreateObjectV1ResponseMPayloadToJSON(value?: Ezsignf
     }
     return {
         
-        'a_pkiEzsignfolderID': value.aPkiEzsignfolderID,
+        'a_sEmailAddressSuccess': value.aSEmailAddressSuccess,
+        'a_sEmailAddressFailure': value.aSEmailAddressFailure,
     };
 }
 
