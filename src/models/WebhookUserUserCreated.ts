@@ -22,64 +22,64 @@ import {
     CommonWebhookFromJSON,
     CommonWebhookFromJSONTyped,
     CommonWebhookToJSON,
-    EzsignfolderResponse,
-    EzsignfolderResponseFromJSON,
-    EzsignfolderResponseFromJSONTyped,
-    EzsignfolderResponseToJSON,
-    WebhookEzsignFolderCompletedAllOf,
-    WebhookEzsignFolderCompletedAllOfFromJSON,
-    WebhookEzsignFolderCompletedAllOfFromJSONTyped,
-    WebhookEzsignFolderCompletedAllOfToJSON,
+    UserResponse,
+    UserResponseFromJSON,
+    UserResponseFromJSONTyped,
+    UserResponseToJSON,
     WebhookResponse,
     WebhookResponseFromJSON,
     WebhookResponseFromJSONTyped,
     WebhookResponseToJSON,
+    WebhookUserUserCreatedAllOf,
+    WebhookUserUserCreatedAllOfFromJSON,
+    WebhookUserUserCreatedAllOfFromJSONTyped,
+    WebhookUserUserCreatedAllOfToJSON,
 } from './';
 
 /**
  * This is the base Webhook object
  * @export
- * @interface WebhookEzsignFolderCompleted
+ * @interface WebhookUserUserCreated
  */
-export interface WebhookEzsignFolderCompleted {
+export interface WebhookUserUserCreated {
     /**
      * 
-     * @type {EzsignfolderResponse}
-     * @memberof WebhookEzsignFolderCompleted
+     * @type {UserResponse}
+     * @memberof WebhookUserUserCreated
      */
-    objEzsignfolder: EzsignfolderResponse;
+    objUser: UserResponse;
     /**
      * 
      * @type {WebhookResponse}
-     * @memberof WebhookEzsignFolderCompleted
+     * @memberof WebhookUserUserCreated
      */
     objWebhook: WebhookResponse;
     /**
      * An array containing details of previous attempts that were made to deliver the message.
      * The array is empty if it's the first attempt.
      * @type {Array<AttemptResponse>}
-     * @memberof WebhookEzsignFolderCompleted
+     * @memberof WebhookUserUserCreated
      */
     aObjAttempt: Array<AttemptResponse>;
 }
 
-export function WebhookEzsignFolderCompletedFromJSON(json: any): WebhookEzsignFolderCompleted {
-    return WebhookEzsignFolderCompletedFromJSONTyped(json, false);
+export function WebhookUserUserCreatedFromJSON(json: any): WebhookUserUserCreated {
+    return WebhookUserUserCreatedFromJSONTyped(json, false);
 }
 
-export function WebhookEzsignFolderCompletedFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookEzsignFolderCompleted {
+export function WebhookUserUserCreatedFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookUserUserCreated {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseFromJSON(json['objEzsignfolder']),
+        'objUser': UserResponseFromJSON(json['objUser']),
         'objWebhook': WebhookResponseFromJSON(json['objWebhook']),
         'aObjAttempt': ((json['a_objAttempt'] as Array<any>).map(AttemptResponseFromJSON)),
     };
 }
 
-export function WebhookEzsignFolderCompletedToJSON(value?: WebhookEzsignFolderCompleted | null): any {
+export function WebhookUserUserCreatedToJSON(value?: WebhookUserUserCreated | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -88,7 +88,7 @@ export function WebhookEzsignFolderCompletedToJSON(value?: WebhookEzsignFolderCo
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseToJSON(value.objEzsignfolder),
+        'objUser': UserResponseToJSON(value.objUser),
         'objWebhook': WebhookResponseToJSON(value.objWebhook),
         'a_objAttempt': ((value.aObjAttempt as Array<any>).map(AttemptResponseToJSON)),
     };

@@ -13,27 +13,25 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    FieldEUserType,
+    FieldEUserTypeFromJSON,
+    FieldEUserTypeFromJSONTyped,
+    FieldEUserTypeToJSON,
+} from './';
+
 /**
- * A Contact Object
+ * 
  * @export
- * @interface ContactRequest
+ * @interface UserResponseAllOf
  */
-export interface ContactRequest {
+export interface UserResponseAllOf {
     /**
-     * The unique ID of the Contacttitle.
-     * 
-     * Valid values:
-     * 
-     * |Value|Description|
-     * |-|-|
-     * |1|Ms.|
-     * |2|Mr.|
-     * |4|(Blank)|
-     * |5|Me (For Notaries)|
+     * The unique ID of the User
      * @type {number}
-     * @memberof ContactRequest
+     * @memberof UserResponseAllOf
      */
-    fkiContacttitleID: number;
+    pkiUserID: number;
     /**
      * The unique ID of the Language.
      * 
@@ -44,55 +42,55 @@ export interface ContactRequest {
      * |1|French|
      * |2|English|
      * @type {number}
-     * @memberof ContactRequest
+     * @memberof UserResponseAllOf
      */
     fkiLanguageID: number;
     /**
-     * The First name of the contact
-     * @type {string}
-     * @memberof ContactRequest
+     * 
+     * @type {FieldEUserType}
+     * @memberof UserResponseAllOf
      */
-    sContactFirstname: string;
+    eUserType: FieldEUserType;
     /**
-     * The Last name of the contact
+     * The First name of the user
      * @type {string}
-     * @memberof ContactRequest
+     * @memberof UserResponseAllOf
      */
-    sContactLastname: string;
+    sUserFirstname: string;
     /**
-     * The Company name of the contact
+     * The Last name of the user
      * @type {string}
-     * @memberof ContactRequest
+     * @memberof UserResponseAllOf
      */
-    sContactCompany: string;
+    sUserLastname: string;
     /**
-     * The Birth Date of the contact
+     * The Login name of the User.
      * @type {string}
-     * @memberof ContactRequest
+     * @memberof UserResponseAllOf
      */
-    dtContactBirthdate?: string;
+    sUserLoginname: string;
 }
 
-export function ContactRequestFromJSON(json: any): ContactRequest {
-    return ContactRequestFromJSONTyped(json, false);
+export function UserResponseAllOfFromJSON(json: any): UserResponseAllOf {
+    return UserResponseAllOfFromJSONTyped(json, false);
 }
 
-export function ContactRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactRequest {
+export function UserResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserResponseAllOf {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'fkiContacttitleID': json['fkiContacttitleID'],
+        'pkiUserID': json['pkiUserID'],
         'fkiLanguageID': json['fkiLanguageID'],
-        'sContactFirstname': json['sContactFirstname'],
-        'sContactLastname': json['sContactLastname'],
-        'sContactCompany': json['sContactCompany'],
-        'dtContactBirthdate': !exists(json, 'dtContactBirthdate') ? undefined : json['dtContactBirthdate'],
+        'eUserType': FieldEUserTypeFromJSON(json['eUserType']),
+        'sUserFirstname': json['sUserFirstname'],
+        'sUserLastname': json['sUserLastname'],
+        'sUserLoginname': json['sUserLoginname'],
     };
 }
 
-export function ContactRequestToJSON(value?: ContactRequest | null): any {
+export function UserResponseAllOfToJSON(value?: UserResponseAllOf | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -101,12 +99,12 @@ export function ContactRequestToJSON(value?: ContactRequest | null): any {
     }
     return {
         
-        'fkiContacttitleID': value.fkiContacttitleID,
+        'pkiUserID': value.pkiUserID,
         'fkiLanguageID': value.fkiLanguageID,
-        'sContactFirstname': value.sContactFirstname,
-        'sContactLastname': value.sContactLastname,
-        'sContactCompany': value.sContactCompany,
-        'dtContactBirthdate': value.dtContactBirthdate,
+        'eUserType': FieldEUserTypeToJSON(value.eUserType),
+        'sUserFirstname': value.sUserFirstname,
+        'sUserLastname': value.sUserLastname,
+        'sUserLoginname': value.sUserLoginname,
     };
 }
 

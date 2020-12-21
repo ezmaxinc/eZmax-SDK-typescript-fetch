@@ -14,41 +14,41 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    EzsignfolderRequest,
-    EzsignfolderRequestFromJSON,
-    EzsignfolderRequestFromJSONTyped,
-    EzsignfolderRequestToJSON,
+    UserResponse,
+    UserResponseFromJSON,
+    UserResponseFromJSONTyped,
+    UserResponseToJSON,
 } from './';
 
 /**
- * Request for the /1/object/ezsignfolder/editObject API Request
+ * 
  * @export
- * @interface EzsignfolderEditObjectV1Request
+ * @interface WebhookUserUserCreatedAllOf
  */
-export interface EzsignfolderEditObjectV1Request {
+export interface WebhookUserUserCreatedAllOf {
     /**
      * 
-     * @type {EzsignfolderRequest}
-     * @memberof EzsignfolderEditObjectV1Request
+     * @type {UserResponse}
+     * @memberof WebhookUserUserCreatedAllOf
      */
-    objEzsignfolder?: EzsignfolderRequest;
+    objUser: UserResponse;
 }
 
-export function EzsignfolderEditObjectV1RequestFromJSON(json: any): EzsignfolderEditObjectV1Request {
-    return EzsignfolderEditObjectV1RequestFromJSONTyped(json, false);
+export function WebhookUserUserCreatedAllOfFromJSON(json: any): WebhookUserUserCreatedAllOf {
+    return WebhookUserUserCreatedAllOfFromJSONTyped(json, false);
 }
 
-export function EzsignfolderEditObjectV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderEditObjectV1Request {
+export function WebhookUserUserCreatedAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookUserUserCreatedAllOf {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignfolder': !exists(json, 'objEzsignfolder') ? undefined : EzsignfolderRequestFromJSON(json['objEzsignfolder']),
+        'objUser': UserResponseFromJSON(json['objUser']),
     };
 }
 
-export function EzsignfolderEditObjectV1RequestToJSON(value?: EzsignfolderEditObjectV1Request | null): any {
+export function WebhookUserUserCreatedAllOfToJSON(value?: WebhookUserUserCreatedAllOf | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +57,7 @@ export function EzsignfolderEditObjectV1RequestToJSON(value?: EzsignfolderEditOb
     }
     return {
         
-        'objEzsignfolder': EzsignfolderRequestToJSON(value.objEzsignfolder),
+        'objUser': UserResponseToJSON(value.objUser),
     };
 }
 

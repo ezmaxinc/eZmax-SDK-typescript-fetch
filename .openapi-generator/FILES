@@ -93,6 +93,7 @@ src/models/FieldEEzsigndocumentStep.ts
 src/models/FieldEEzsignfolderSendreminderfrequency.ts
 src/models/FieldEEzsignfolderStep.ts
 src/models/FieldEPhoneType.ts
+src/models/FieldEUserType.ts
 src/models/FranchisereferalincomeCreateObjectV1Request.ts
 src/models/FranchisereferalincomeCreateObjectV1Response.ts
 src/models/FranchisereferalincomeCreateObjectV1ResponseMPayload.ts
@@ -102,11 +103,15 @@ src/models/PhoneRequest.ts
 src/models/UserCreateEzsignuserV1Request.ts
 src/models/UserCreateEzsignuserV1Response.ts
 src/models/UserCreateEzsignuserV1ResponseMPayload.ts
+src/models/UserResponse.ts
+src/models/UserResponseAllOf.ts
 src/models/WebhookEzsignDocumentCompleted.ts
 src/models/WebhookEzsignDocumentCompletedAllOf.ts
 src/models/WebhookEzsignFolderCompleted.ts
 src/models/WebhookEzsignFolderCompletedAllOf.ts
 src/models/WebhookResponse.ts
+src/models/WebhookUserUserCreated.ts
+src/models/WebhookUserUserCreatedAllOf.ts
 src/models/WebsiteRequest.ts
 src/models/index.ts
 src/runtime.ts

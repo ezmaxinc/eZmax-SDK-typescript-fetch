@@ -13,66 +13,126 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    CommonAudit,
+    CommonAuditFromJSON,
+    CommonAuditFromJSONTyped,
+    CommonAuditToJSON,
+    FieldEUserType,
+    FieldEUserTypeFromJSON,
+    FieldEUserTypeFromJSONTyped,
+    FieldEUserTypeToJSON,
+    UserResponseAllOf,
+    UserResponseAllOfFromJSON,
+    UserResponseAllOfFromJSONTyped,
+    UserResponseAllOfToJSON,
+} from './';
+
 /**
- * Gives informations about the user that created the object and the last user to have modified it.
- * 
- * If the object was never modified after creation, both Created and Modified informations will be the same.
- * 
- * Apikey details will only be provided if the changes were made by an API key.
+ * A User Object
  * @export
- * @interface CommonAudit
+ * @interface UserResponse
  */
-export interface CommonAudit {
+export interface UserResponse {
+    /**
+     * The unique ID of the User
+     * @type {number}
+     * @memberof UserResponse
+     */
+    pkiUserID: number;
+    /**
+     * The unique ID of the Language.
+     * 
+     * Valid values:
+     * 
+     * |Value|Description|
+     * |-|-|
+     * |1|French|
+     * |2|English|
+     * @type {number}
+     * @memberof UserResponse
+     */
+    fkiLanguageID: number;
+    /**
+     * 
+     * @type {FieldEUserType}
+     * @memberof UserResponse
+     */
+    eUserType: FieldEUserType;
+    /**
+     * The First name of the user
+     * @type {string}
+     * @memberof UserResponse
+     */
+    sUserFirstname: string;
+    /**
+     * The Last name of the user
+     * @type {string}
+     * @memberof UserResponse
+     */
+    sUserLastname: string;
+    /**
+     * The Login name of the User.
+     * @type {string}
+     * @memberof UserResponse
+     */
+    sUserLoginname: string;
     /**
      * The id of the User that created the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     fkiUserIDCreated: number;
     /**
      * The id of the User that made the last modification on the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     fkiUserIDModified: number;
     /**
      * The id of the API Key that created the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     fkiApikeyIDCreated?: number;
     /**
      * The id of the API Key that made the last modification on the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     fkiApikeyIDModified?: number;
     /**
      * Represent a Date Time.
      * The timezone is the one configured in the User's profile.
      * @type {string}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     dtCreatedDate: string;
     /**
      * Represent a Date Time.
      * The timezone is the one configured in the User's profile.
      * @type {string}
-     * @memberof CommonAudit
+     * @memberof UserResponse
      */
     dtModifiedDate: string;
 }
 
-export function CommonAuditFromJSON(json: any): CommonAudit {
-    return CommonAuditFromJSONTyped(json, false);
+export function UserResponseFromJSON(json: any): UserResponse {
+    return UserResponseFromJSONTyped(json, false);
 }
 
-export function CommonAuditFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonAudit {
+export function UserResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UserResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
+        'pkiUserID': json['pkiUserID'],
+        'fkiLanguageID': json['fkiLanguageID'],
+        'eUserType': FieldEUserTypeFromJSON(json['eUserType']),
+        'sUserFirstname': json['sUserFirstname'],
+        'sUserLastname': json['sUserLastname'],
+        'sUserLoginname': json['sUserLoginname'],
         'fkiUserIDCreated': json['fkiUserIDCreated'],
         'fkiUserIDModified': json['fkiUserIDModified'],
         'fkiApikeyIDCreated': !exists(json, 'fkiApikeyIDCreated') ? undefined : json['fkiApikeyIDCreated'],
@@ -82,7 +142,7 @@ export function CommonAuditFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function CommonAuditToJSON(value?: CommonAudit | null): any {
+export function UserResponseToJSON(value?: UserResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -91,6 +151,12 @@ export function CommonAuditToJSON(value?: CommonAudit | null): any {
     }
     return {
         
+        'pkiUserID': value.pkiUserID,
+        'fkiLanguageID': value.fkiLanguageID,
+        'eUserType': FieldEUserTypeToJSON(value.eUserType),
+        'sUserFirstname': value.sUserFirstname,
+        'sUserLastname': value.sUserLastname,
+        'sUserLoginname': value.sUserLoginname,
         'fkiUserIDCreated': value.fkiUserIDCreated,
         'fkiUserIDModified': value.fkiUserIDModified,
         'fkiApikeyIDCreated': value.fkiApikeyIDCreated,
