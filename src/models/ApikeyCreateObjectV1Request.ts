@@ -14,41 +14,52 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    EzsignfolderResponse,
-    EzsignfolderResponseFromJSON,
-    EzsignfolderResponseFromJSONTyped,
-    EzsignfolderResponseToJSON,
+    ApikeyRequest,
+    ApikeyRequestFromJSON,
+    ApikeyRequestFromJSONTyped,
+    ApikeyRequestToJSON,
+    ApikeyRequestCompound,
+    ApikeyRequestCompoundFromJSON,
+    ApikeyRequestCompoundFromJSONTyped,
+    ApikeyRequestCompoundToJSON,
 } from './';
 
 /**
- * 
+ * Request for the /1/object/apikey/createObject API Request
  * @export
- * @interface WebhookEzsignFolderCompletedAllOf
+ * @interface ApikeyCreateObjectV1Request
  */
-export interface WebhookEzsignFolderCompletedAllOf {
+export interface ApikeyCreateObjectV1Request {
     /**
      * 
-     * @type {EzsignfolderResponse}
-     * @memberof WebhookEzsignFolderCompletedAllOf
+     * @type {ApikeyRequest}
+     * @memberof ApikeyCreateObjectV1Request
      */
-    objEzsignfolder: EzsignfolderResponse;
+    objApikey?: ApikeyRequest;
+    /**
+     * 
+     * @type {ApikeyRequestCompound}
+     * @memberof ApikeyCreateObjectV1Request
+     */
+    objApikeyCompound?: ApikeyRequestCompound;
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSON(json: any): WebhookEzsignFolderCompletedAllOf {
-    return WebhookEzsignFolderCompletedAllOfFromJSONTyped(json, false);
+export function ApikeyCreateObjectV1RequestFromJSON(json: any): ApikeyCreateObjectV1Request {
+    return ApikeyCreateObjectV1RequestFromJSONTyped(json, false);
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookEzsignFolderCompletedAllOf {
+export function ApikeyCreateObjectV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApikeyCreateObjectV1Request {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseFromJSON(json['objEzsignfolder']),
+        'objApikey': !exists(json, 'objApikey') ? undefined : ApikeyRequestFromJSON(json['objApikey']),
+        'objApikeyCompound': !exists(json, 'objApikeyCompound') ? undefined : ApikeyRequestCompoundFromJSON(json['objApikeyCompound']),
     };
 }
 
-export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFolderCompletedAllOf | null): any {
+export function ApikeyCreateObjectV1RequestToJSON(value?: ApikeyCreateObjectV1Request | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +68,8 @@ export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFol
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseToJSON(value.objEzsignfolder),
+        'objApikey': ApikeyRequestToJSON(value.objApikey),
+        'objApikeyCompound': ApikeyRequestCompoundToJSON(value.objApikeyCompound),
     };
 }
 

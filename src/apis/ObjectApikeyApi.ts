@@ -15,30 +15,30 @@
 
 import * as runtime from '../runtime';
 import {
-    FranchisereferalincomeCreateObjectV1Request,
-    FranchisereferalincomeCreateObjectV1RequestFromJSON,
-    FranchisereferalincomeCreateObjectV1RequestToJSON,
-    FranchisereferalincomeCreateObjectV1Response,
-    FranchisereferalincomeCreateObjectV1ResponseFromJSON,
-    FranchisereferalincomeCreateObjectV1ResponseToJSON,
+    ApikeyCreateObjectV1Request,
+    ApikeyCreateObjectV1RequestFromJSON,
+    ApikeyCreateObjectV1RequestToJSON,
+    ApikeyCreateObjectV1Response,
+    ApikeyCreateObjectV1ResponseFromJSON,
+    ApikeyCreateObjectV1ResponseToJSON,
 } from '../models';
 
-export interface FranchisereferalincomeCreateObjectV1OperationRequest {
-    franchisereferalincomeCreateObjectV1Request: Array<FranchisereferalincomeCreateObjectV1Request>;
+export interface ApikeyCreateObjectV1OperationRequest {
+    apikeyCreateObjectV1Request: Array<ApikeyCreateObjectV1Request>;
 }
 
 /**
  * 
  */
-export class ObjectFranchisereferalincomeApi extends runtime.BaseAPI {
+export class ObjectApikeyApi extends runtime.BaseAPI {
 
     /**
      * The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
-     * Create a new Franchisereferalincome
+     * Create a new Apikey
      */
-    async franchisereferalincomeCreateObjectV1Raw(requestParameters: FranchisereferalincomeCreateObjectV1OperationRequest): Promise<runtime.ApiResponse<FranchisereferalincomeCreateObjectV1Response>> {
-        if (requestParameters.franchisereferalincomeCreateObjectV1Request === null || requestParameters.franchisereferalincomeCreateObjectV1Request === undefined) {
-            throw new runtime.RequiredError('franchisereferalincomeCreateObjectV1Request','Required parameter requestParameters.franchisereferalincomeCreateObjectV1Request was null or undefined when calling franchisereferalincomeCreateObjectV1.');
+    async apikeyCreateObjectV1Raw(requestParameters: ApikeyCreateObjectV1OperationRequest): Promise<runtime.ApiResponse<ApikeyCreateObjectV1Response>> {
+        if (requestParameters.apikeyCreateObjectV1Request === null || requestParameters.apikeyCreateObjectV1Request === undefined) {
+            throw new runtime.RequiredError('apikeyCreateObjectV1Request','Required parameter requestParameters.apikeyCreateObjectV1Request was null or undefined when calling apikeyCreateObjectV1.');
         }
 
         const queryParameters: any = {};
@@ -52,22 +52,22 @@ export class ObjectFranchisereferalincomeApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/1/object/franchisereferalincome`,
+            path: `/1/object/apikey`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.franchisereferalincomeCreateObjectV1Request.map(FranchisereferalincomeCreateObjectV1RequestToJSON),
+            body: requestParameters.apikeyCreateObjectV1Request.map(ApikeyCreateObjectV1RequestToJSON),
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FranchisereferalincomeCreateObjectV1ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ApikeyCreateObjectV1ResponseFromJSON(jsonValue));
     }
 
     /**
      * The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
-     * Create a new Franchisereferalincome
+     * Create a new Apikey
      */
-    async franchisereferalincomeCreateObjectV1(requestParameters: FranchisereferalincomeCreateObjectV1OperationRequest): Promise<FranchisereferalincomeCreateObjectV1Response> {
-        const response = await this.franchisereferalincomeCreateObjectV1Raw(requestParameters);
+    async apikeyCreateObjectV1(requestParameters: ApikeyCreateObjectV1OperationRequest): Promise<ApikeyCreateObjectV1Response> {
+        const response = await this.apikeyCreateObjectV1Raw(requestParameters);
         return await response.value();
     }
 

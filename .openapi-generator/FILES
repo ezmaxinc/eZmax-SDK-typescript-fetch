@@ -5,6 +5,7 @@ README.md
 package.json
 src/apis/ModuleUserApi.ts
 src/apis/ObjectActivesessionApi.ts
+src/apis/ObjectApikeyApi.ts
 src/apis/ObjectEzsigndocumentApi.ts
 src/apis/ObjectEzsignfolderApi.ts
 src/apis/ObjectEzsignfoldersignerassociationApi.ts
@@ -18,6 +19,12 @@ src/index.ts
 src/models/ActivesessionGetCurrentV1Response.ts
 src/models/ActivesessionGetCurrentV1ResponseMPayload.ts
 src/models/AddressRequest.ts
+src/models/ApikeyCreateObjectV1Request.ts
+src/models/ApikeyCreateObjectV1Response.ts
+src/models/ApikeyCreateObjectV1ResponseMPayload.ts
+src/models/ApikeyRequest.ts
+src/models/ApikeyRequestCompound.ts
+src/models/ApikeyResponse.ts
 src/models/AttemptResponse.ts
 src/models/CommonAudit.ts
 src/models/CommonGetAutocompleteV1Response.ts
@@ -99,6 +106,7 @@ src/models/FranchisereferalincomeCreateObjectV1Response.ts
 src/models/FranchisereferalincomeCreateObjectV1ResponseMPayload.ts
 src/models/FranchisereferalincomeRequest.ts
 src/models/FranchisereferalincomeRequestCompound.ts
+src/models/MultilingualApikeyDescription.ts
 src/models/PhoneRequest.ts
 src/models/UserCreateEzsignuserV1Request.ts
 src/models/UserCreateEzsignuserV1Response.ts

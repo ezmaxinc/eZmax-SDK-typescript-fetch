@@ -14,6 +14,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    ApikeyCreateObjectV1ResponseMPayload,
+    ApikeyCreateObjectV1ResponseMPayloadFromJSON,
+    ApikeyCreateObjectV1ResponseMPayloadFromJSONTyped,
+    ApikeyCreateObjectV1ResponseMPayloadToJSON,
     CommonResponse,
     CommonResponseFromJSON,
     CommonResponseFromJSONTyped,
@@ -26,55 +30,51 @@ import {
     CommonResponseObjDebugPayloadFromJSON,
     CommonResponseObjDebugPayloadFromJSONTyped,
     CommonResponseObjDebugPayloadToJSON,
-    EzsignsignatureCreateObjectV1ResponseMPayload,
-    EzsignsignatureCreateObjectV1ResponseMPayloadFromJSON,
-    EzsignsignatureCreateObjectV1ResponseMPayloadFromJSONTyped,
-    EzsignsignatureCreateObjectV1ResponseMPayloadToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsignsignature/createObject API Request
+ * Response for the /1/object/apikey/createObject API Request
  * @export
- * @interface EzsignsignatureCreateObjectV1Response
+ * @interface ApikeyCreateObjectV1Response
  */
-export interface EzsignsignatureCreateObjectV1Response {
+export interface ApikeyCreateObjectV1Response {
     /**
      * 
-     * @type {EzsignsignatureCreateObjectV1ResponseMPayload}
-     * @memberof EzsignsignatureCreateObjectV1Response
+     * @type {ApikeyCreateObjectV1ResponseMPayload}
+     * @memberof ApikeyCreateObjectV1Response
      */
-    mPayload: EzsignsignatureCreateObjectV1ResponseMPayload;
+    mPayload: ApikeyCreateObjectV1ResponseMPayload;
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignsignatureCreateObjectV1Response
+     * @memberof ApikeyCreateObjectV1Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignsignatureCreateObjectV1Response
+     * @memberof ApikeyCreateObjectV1Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignsignatureCreateObjectV1ResponseFromJSON(json: any): EzsignsignatureCreateObjectV1Response {
-    return EzsignsignatureCreateObjectV1ResponseFromJSONTyped(json, false);
+export function ApikeyCreateObjectV1ResponseFromJSON(json: any): ApikeyCreateObjectV1Response {
+    return ApikeyCreateObjectV1ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignsignatureCreateObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignsignatureCreateObjectV1Response {
+export function ApikeyCreateObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApikeyCreateObjectV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'mPayload': EzsignsignatureCreateObjectV1ResponseMPayloadFromJSON(json['mPayload']),
+        'mPayload': ApikeyCreateObjectV1ResponseMPayloadFromJSON(json['mPayload']),
         'objDebugPayload': !exists(json, 'objDebugPayload') ? undefined : CommonResponseObjDebugPayloadFromJSON(json['objDebugPayload']),
         'objDebug': !exists(json, 'objDebug') ? undefined : CommonResponseObjDebugFromJSON(json['objDebug']),
     };
 }
 
-export function EzsignsignatureCreateObjectV1ResponseToJSON(value?: EzsignsignatureCreateObjectV1Response | null): any {
+export function ApikeyCreateObjectV1ResponseToJSON(value?: ApikeyCreateObjectV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -83,7 +83,7 @@ export function EzsignsignatureCreateObjectV1ResponseToJSON(value?: Ezsignsignat
     }
     return {
         
-        'mPayload': EzsignsignatureCreateObjectV1ResponseMPayloadToJSON(value.mPayload),
+        'mPayload': ApikeyCreateObjectV1ResponseMPayloadToJSON(value.mPayload),
         'objDebugPayload': CommonResponseObjDebugPayloadToJSON(value.objDebugPayload),
         'objDebug': CommonResponseObjDebugToJSON(value.objDebug),
     };

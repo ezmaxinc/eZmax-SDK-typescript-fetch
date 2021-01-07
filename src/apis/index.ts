@@ -1,5 +1,6 @@
 export * from './ModuleUserApi';
 export * from './ObjectActivesessionApi';
+export * from './ObjectApikeyApi';
 export * from './ObjectEzsigndocumentApi';
 export * from './ObjectEzsignfolderApi';
 export * from './ObjectEzsignfoldersignerassociationApi';

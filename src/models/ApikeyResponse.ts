@@ -13,66 +13,89 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    CommonAudit,
+    CommonAuditFromJSON,
+    CommonAuditFromJSONTyped,
+    CommonAuditToJSON,
+    MultilingualApikeyDescription,
+    MultilingualApikeyDescriptionFromJSON,
+    MultilingualApikeyDescriptionFromJSONTyped,
+    MultilingualApikeyDescriptionToJSON,
+} from './';
+
 /**
- * Gives informations about the user that created the object and the last user to have modified it.
- * 
- * If the object was never modified after creation, both Created and Modified informations will be the same.
- * 
- * Apikey details will only be provided if the changes were made by an API key.
+ * An Apikey Object
  * @export
- * @interface CommonAudit
+ * @interface ApikeyResponse
  */
-export interface CommonAudit {
+export interface ApikeyResponse {
+    /**
+     * 
+     * @type {MultilingualApikeyDescription}
+     * @memberof ApikeyResponse
+     */
+    objApikeyDescription: MultilingualApikeyDescription;
+    /**
+     * The secret token for the API key.
+     * 
+     * This will be returned only on creation.
+     * @type {string}
+     * @memberof ApikeyResponse
+     */
+    sComputedToken?: string;
     /**
      * The id of the User that created the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     fkiUserIDCreated: number;
     /**
      * The id of the User that made the last modification on the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     fkiUserIDModified: number;
     /**
      * The id of the API Key that created the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     fkiApikeyIDCreated?: number;
     /**
      * The id of the API Key that made the last modification on the object.
      * @type {number}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     fkiApikeyIDModified?: number;
     /**
      * Represent a Date Time.
      * The timezone is the one configured in the User's profile.
      * @type {string}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     dtCreatedDate: string;
     /**
      * Represent a Date Time.
      * The timezone is the one configured in the User's profile.
      * @type {string}
-     * @memberof CommonAudit
+     * @memberof ApikeyResponse
      */
     dtModifiedDate: string;
 }
 
-export function CommonAuditFromJSON(json: any): CommonAudit {
-    return CommonAuditFromJSONTyped(json, false);
+export function ApikeyResponseFromJSON(json: any): ApikeyResponse {
+    return ApikeyResponseFromJSONTyped(json, false);
 }
 
-export function CommonAuditFromJSONTyped(json: any, ignoreDiscriminator: boolean): CommonAudit {
+export function ApikeyResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApikeyResponse {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
+        'objApikeyDescription': MultilingualApikeyDescriptionFromJSON(json['objApikeyDescription']),
+        'sComputedToken': !exists(json, 'sComputedToken') ? undefined : json['sComputedToken'],
         'fkiUserIDCreated': json['fkiUserIDCreated'],
         'fkiUserIDModified': json['fkiUserIDModified'],
         'fkiApikeyIDCreated': !exists(json, 'fkiApikeyIDCreated') ? undefined : json['fkiApikeyIDCreated'],
@@ -82,7 +105,7 @@ export function CommonAuditFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function CommonAuditToJSON(value?: CommonAudit | null): any {
+export function ApikeyResponseToJSON(value?: ApikeyResponse | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -91,6 +114,8 @@ export function CommonAuditToJSON(value?: CommonAudit | null): any {
     }
     return {
         
+        'objApikeyDescription': MultilingualApikeyDescriptionToJSON(value.objApikeyDescription),
+        'sComputedToken': value.sComputedToken,
         'fkiUserIDCreated': value.fkiUserIDCreated,
         'fkiUserIDModified': value.fkiUserIDModified,
         'fkiApikeyIDCreated': value.fkiApikeyIDCreated,

@@ -13,42 +13,42 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    EzsignfolderResponse,
-    EzsignfolderResponseFromJSON,
-    EzsignfolderResponseFromJSONTyped,
-    EzsignfolderResponseToJSON,
-} from './';
-
 /**
- * 
+ * Description of the API Key
  * @export
- * @interface WebhookEzsignFolderCompletedAllOf
+ * @interface MultilingualApikeyDescription
  */
-export interface WebhookEzsignFolderCompletedAllOf {
+export interface MultilingualApikeyDescription {
     /**
-     * 
-     * @type {EzsignfolderResponse}
-     * @memberof WebhookEzsignFolderCompletedAllOf
+     * Value in French
+     * @type {string}
+     * @memberof MultilingualApikeyDescription
      */
-    objEzsignfolder: EzsignfolderResponse;
+    sApikeyDescription1?: string;
+    /**
+     * Value in English
+     * @type {string}
+     * @memberof MultilingualApikeyDescription
+     */
+    sApikeyDescription2?: string;
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSON(json: any): WebhookEzsignFolderCompletedAllOf {
-    return WebhookEzsignFolderCompletedAllOfFromJSONTyped(json, false);
+export function MultilingualApikeyDescriptionFromJSON(json: any): MultilingualApikeyDescription {
+    return MultilingualApikeyDescriptionFromJSONTyped(json, false);
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookEzsignFolderCompletedAllOf {
+export function MultilingualApikeyDescriptionFromJSONTyped(json: any, ignoreDiscriminator: boolean): MultilingualApikeyDescription {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseFromJSON(json['objEzsignfolder']),
+        'sApikeyDescription1': !exists(json, 'sApikeyDescription1') ? undefined : json['sApikeyDescription1'],
+        'sApikeyDescription2': !exists(json, 'sApikeyDescription2') ? undefined : json['sApikeyDescription2'],
     };
 }
 
-export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFolderCompletedAllOf | null): any {
+export function MultilingualApikeyDescriptionToJSON(value?: MultilingualApikeyDescription | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +57,8 @@ export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFol
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseToJSON(value.objEzsignfolder),
+        'sApikeyDescription1': value.sApikeyDescription1,
+        'sApikeyDescription2': value.sApikeyDescription2,
     };
 }
 

@@ -14,41 +14,41 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    EzsignfolderResponse,
-    EzsignfolderResponseFromJSON,
-    EzsignfolderResponseFromJSONTyped,
-    EzsignfolderResponseToJSON,
+    ApikeyResponse,
+    ApikeyResponseFromJSON,
+    ApikeyResponseFromJSONTyped,
+    ApikeyResponseToJSON,
 } from './';
 
 /**
- * 
+ * Payload for the /1/object/apikey/createObject API Request
  * @export
- * @interface WebhookEzsignFolderCompletedAllOf
+ * @interface ApikeyCreateObjectV1ResponseMPayload
  */
-export interface WebhookEzsignFolderCompletedAllOf {
+export interface ApikeyCreateObjectV1ResponseMPayload {
     /**
      * 
-     * @type {EzsignfolderResponse}
-     * @memberof WebhookEzsignFolderCompletedAllOf
+     * @type {Array<ApikeyResponse>}
+     * @memberof ApikeyCreateObjectV1ResponseMPayload
      */
-    objEzsignfolder: EzsignfolderResponse;
+    aObjApikey: Array<ApikeyResponse>;
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSON(json: any): WebhookEzsignFolderCompletedAllOf {
-    return WebhookEzsignFolderCompletedAllOfFromJSONTyped(json, false);
+export function ApikeyCreateObjectV1ResponseMPayloadFromJSON(json: any): ApikeyCreateObjectV1ResponseMPayload {
+    return ApikeyCreateObjectV1ResponseMPayloadFromJSONTyped(json, false);
 }
 
-export function WebhookEzsignFolderCompletedAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): WebhookEzsignFolderCompletedAllOf {
+export function ApikeyCreateObjectV1ResponseMPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApikeyCreateObjectV1ResponseMPayload {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseFromJSON(json['objEzsignfolder']),
+        'aObjApikey': ((json['a_objApikey'] as Array<any>).map(ApikeyResponseFromJSON)),
     };
 }
 
-export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFolderCompletedAllOf | null): any {
+export function ApikeyCreateObjectV1ResponseMPayloadToJSON(value?: ApikeyCreateObjectV1ResponseMPayload | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -57,7 +57,7 @@ export function WebhookEzsignFolderCompletedAllOfToJSON(value?: WebhookEzsignFol
     }
     return {
         
-        'objEzsignfolder': EzsignfolderResponseToJSON(value.objEzsignfolder),
+        'a_objApikey': ((value.aObjApikey as Array<any>).map(ApikeyResponseToJSON)),
     };
 }
 
