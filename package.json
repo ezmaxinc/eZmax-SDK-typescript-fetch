@@ -1,6 +1,6 @@
 {
   "name": "ezmaxinc-sdk-typescrit-fetch",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "OpenAPI client for ezmaxinc-sdk-typescrit-fetch",
   "author": "OpenAPI-Generator",
   "main": "./dist/index.js",
