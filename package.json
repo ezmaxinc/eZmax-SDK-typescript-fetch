@@ -1,7 +1,7 @@
 {
-  "name": "ezmaxinc-sdk-typescrit-fetch",
-  "version": "1.0.27",
-  "description": "OpenAPI client for ezmaxinc-sdk-typescrit-fetch",
+  "name": "@ezmaxinc/ezmax-sdk-typescript-fetch",
+  "version": "1.0.28",
+  "description": "OpenAPI client for @ezmaxinc/ezmax-sdk-typescript-fetch",
   "author": "OpenAPI-Generator",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -10,6 +10,6 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "typescript": "^3.6"
+    "typescript": "^2.4"
   }
 }
