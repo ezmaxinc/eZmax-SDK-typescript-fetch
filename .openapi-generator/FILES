@@ -3,6 +3,7 @@
 .openapi-generator-ignore
 README.md
 package.json
+src/apis/GlobalCustomerApi.ts
 src/apis/ModuleUserApi.ts
 src/apis/ObjectActivesessionApi.ts
 src/apis/ObjectApikeyApi.ts
@@ -106,6 +107,7 @@ src/models/FranchisereferalincomeCreateObjectV1Response.ts
 src/models/FranchisereferalincomeCreateObjectV1ResponseMPayload.ts
 src/models/FranchisereferalincomeRequest.ts
 src/models/FranchisereferalincomeRequestCompound.ts
+src/models/GlobalCustomerGetEndpointV1Response.ts
 src/models/MultilingualApikeyDescription.ts
 src/models/PhoneRequest.ts
 src/models/UserCreateEzsignuserV1Request.ts

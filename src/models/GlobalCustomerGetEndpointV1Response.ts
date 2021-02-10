@@ -13,53 +13,35 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    ApikeyRequest,
-    ApikeyRequestFromJSON,
-    ApikeyRequestFromJSONTyped,
-    ApikeyRequestToJSON,
-    MultilingualApikeyDescription,
-    MultilingualApikeyDescriptionFromJSON,
-    MultilingualApikeyDescriptionFromJSONTyped,
-    MultilingualApikeyDescriptionToJSON,
-} from './';
-
 /**
- * An Apikey Object and children to create a complete structure
+ * Response for the /1/customer/{pksCustomerCode}/endpoint API Request
  * @export
- * @interface ApikeyRequestCompound
+ * @interface GlobalCustomerGetEndpointV1Response
  */
-export interface ApikeyRequestCompound {
+export interface GlobalCustomerGetEndpointV1Response {
     /**
-     * The unique ID of the User
-     * @type {number}
-     * @memberof ApikeyRequestCompound
+     * The endpoint's URL
+     * @type {string}
+     * @memberof GlobalCustomerGetEndpointV1Response
      */
-    fkiUserID: number;
-    /**
-     * 
-     * @type {MultilingualApikeyDescription}
-     * @memberof ApikeyRequestCompound
-     */
-    objApikeyDescription: MultilingualApikeyDescription;
+    sEndpointURL: string;
 }
 
-export function ApikeyRequestCompoundFromJSON(json: any): ApikeyRequestCompound {
-    return ApikeyRequestCompoundFromJSONTyped(json, false);
+export function GlobalCustomerGetEndpointV1ResponseFromJSON(json: any): GlobalCustomerGetEndpointV1Response {
+    return GlobalCustomerGetEndpointV1ResponseFromJSONTyped(json, false);
 }
 
-export function ApikeyRequestCompoundFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApikeyRequestCompound {
+export function GlobalCustomerGetEndpointV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): GlobalCustomerGetEndpointV1Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'fkiUserID': json['fkiUserID'],
-        'objApikeyDescription': MultilingualApikeyDescriptionFromJSON(json['objApikeyDescription']),
+        'sEndpointURL': json['sEndpointURL'],
     };
 }
 
-export function ApikeyRequestCompoundToJSON(value?: ApikeyRequestCompound | null): any {
+export function GlobalCustomerGetEndpointV1ResponseToJSON(value?: GlobalCustomerGetEndpointV1Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -68,8 +50,7 @@ export function ApikeyRequestCompoundToJSON(value?: ApikeyRequestCompound | null
     }
     return {
         
-        'fkiUserID': value.fkiUserID,
-        'objApikeyDescription': MultilingualApikeyDescriptionToJSON(value.objApikeyDescription),
+        'sEndpointURL': value.sEndpointURL,
     };
 }
 
