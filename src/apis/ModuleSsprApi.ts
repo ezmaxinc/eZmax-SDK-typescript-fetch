@@ -15,21 +15,21 @@
 
 import * as runtime from '../runtime';
 import {
-    ActivesessionGetCurrentV1Response,
-    ActivesessionGetCurrentV1ResponseFromJSON,
-    ActivesessionGetCurrentV1ResponseToJSON,
+    CommonResponseError,
+    CommonResponseErrorFromJSON,
+    CommonResponseErrorToJSON,
 } from '../models';
 
 /**
  * 
  */
-export class ObjectActivesessionApi extends runtime.BaseAPI {
+export class ModuleSsprApi extends runtime.BaseAPI {
 
     /**
-     * Retrieve the details about the current activesession
-     * Get Current Activesession
+     * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
+     * Remind of forgotten username(s)
      */
-    async activesessionGetCurrentV1Raw(): Promise<runtime.ApiResponse<ActivesessionGetCurrentV1Response>> {
+    async ssprRemindUsernamesV1Raw(): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -39,22 +39,21 @@ export class ObjectActivesessionApi extends runtime.BaseAPI {
         }
 
         const response = await this.request({
-            path: `/1/object/activesession/getCurrent`,
-            method: 'GET',
+            path: `/1/module/sspr/remindUsernames`,
+            method: 'POST',
             headers: headerParameters,
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ActivesessionGetCurrentV1ResponseFromJSON(jsonValue));
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
-     * Retrieve the details about the current activesession
-     * Get Current Activesession
+     * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
+     * Remind of forgotten username(s)
      */
-    async activesessionGetCurrentV1(): Promise<ActivesessionGetCurrentV1Response> {
-        const response = await this.activesessionGetCurrentV1Raw();
-        return await response.value();
+    async ssprRemindUsernamesV1(): Promise<void> {
+        await this.ssprRemindUsernamesV1Raw();
     }
 
 }

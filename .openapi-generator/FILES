@@ -4,6 +4,7 @@
 README.md
 package.json
 src/apis/GlobalCustomerApi.ts
+src/apis/ModuleSsprApi.ts
 src/apis/ModuleUserApi.ts
 src/apis/ObjectActivesessionApi.ts
 src/apis/ObjectApikeyApi.ts

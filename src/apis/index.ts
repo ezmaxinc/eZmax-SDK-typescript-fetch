@@ -1,4 +1,5 @@
 export * from './GlobalCustomerApi';
+export * from './ModuleSsprApi';
 export * from './ModuleUserApi';
 export * from './ObjectActivesessionApi';
 export * from './ObjectApikeyApi';
