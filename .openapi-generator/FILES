@@ -49,8 +49,6 @@ src/models/EzsigndocumentCreateObjectV1Request.ts
 src/models/EzsigndocumentCreateObjectV1Response.ts
 src/models/EzsigndocumentCreateObjectV1ResponseMPayload.ts
 src/models/EzsigndocumentDeleteObjectV1Response.ts
-src/models/EzsigndocumentEditObjectV1Request.ts
-src/models/EzsigndocumentEditObjectV1Response.ts
 src/models/EzsigndocumentGetDownloadUrlV1Response.ts
 src/models/EzsigndocumentGetDownloadUrlV1ResponseMPayload.ts
 src/models/EzsigndocumentGetObjectV1Response.ts
@@ -64,8 +62,6 @@ src/models/EzsignfolderCreateObjectV1Request.ts
 src/models/EzsignfolderCreateObjectV1Response.ts
 src/models/EzsignfolderCreateObjectV1ResponseMPayload.ts
 src/models/EzsignfolderDeleteObjectV1Response.ts
-src/models/EzsignfolderEditObjectV1Request.ts
-src/models/EzsignfolderEditObjectV1Response.ts
 src/models/EzsignfolderGetObjectV1Response.ts
 src/models/EzsignfolderGetObjectV1ResponseMPayload.ts
 src/models/EzsignfolderRequest.ts
@@ -79,8 +75,6 @@ src/models/EzsignfoldersignerassociationCreateObjectV1Request.ts
 src/models/EzsignfoldersignerassociationCreateObjectV1Response.ts
 src/models/EzsignfoldersignerassociationCreateObjectV1ResponseMPayload.ts
 src/models/EzsignfoldersignerassociationDeleteObjectV1Response.ts
-src/models/EzsignfoldersignerassociationEditObjectV1Request.ts
-src/models/EzsignfoldersignerassociationEditObjectV1Response.ts
 src/models/EzsignfoldersignerassociationGetInPersonLoginUrlV1Response.ts
 src/models/EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload.ts
 src/models/EzsignfoldersignerassociationGetObjectV1Response.ts
@@ -90,8 +84,6 @@ src/models/EzsignsignatureCreateObjectV1Request.ts
 src/models/EzsignsignatureCreateObjectV1Response.ts
 src/models/EzsignsignatureCreateObjectV1ResponseMPayload.ts
 src/models/EzsignsignatureDeleteObjectV1Response.ts
-src/models/EzsignsignatureEditObjectV1Request.ts
-src/models/EzsignsignatureEditObjectV1Response.ts
 src/models/EzsignsignatureGetObjectV1Response.ts
 src/models/EzsignsignatureRequest.ts
 src/models/EzsignsignatureRequestCompound.ts
@@ -111,6 +103,14 @@ src/models/FranchisereferalincomeRequestCompound.ts
 src/models/GlobalCustomerGetEndpointV1Response.ts
 src/models/MultilingualApikeyDescription.ts
 src/models/PhoneRequest.ts
+src/models/UNUSEDEzsigndocumentEditObjectV1Request.ts
+src/models/UNUSEDEzsigndocumentEditObjectV1Response.ts
+src/models/UNUSEDEzsignfolderEditObjectV1Request.ts
+src/models/UNUSEDEzsignfolderEditObjectV1Response.ts
+src/models/UNUSEDEzsignfoldersignerassociationEditObjectV1Request.ts
+src/models/UNUSEDEzsignfoldersignerassociationEditObjectV1Response.ts
+src/models/UNUSEDEzsignsignatureEditObjectV1Request.ts
+src/models/UNUSEDEzsignsignatureEditObjectV1Response.ts
 src/models/UserCreateEzsignuserV1Request.ts
 src/models/UserCreateEzsignuserV1Response.ts
 src/models/UserCreateEzsignuserV1ResponseMPayload.ts
