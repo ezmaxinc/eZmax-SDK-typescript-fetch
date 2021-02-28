@@ -18,7 +18,42 @@ import {
     CommonResponseError,
     CommonResponseErrorFromJSON,
     CommonResponseErrorToJSON,
+    SsprResetPasswordRequestV1Request,
+    SsprResetPasswordRequestV1RequestFromJSON,
+    SsprResetPasswordRequestV1RequestToJSON,
+    SsprResetPasswordV1Request,
+    SsprResetPasswordV1RequestFromJSON,
+    SsprResetPasswordV1RequestToJSON,
+    SsprSendUsernamesV1Request,
+    SsprSendUsernamesV1RequestFromJSON,
+    SsprSendUsernamesV1RequestToJSON,
+    SsprUnlockAccountRequestV1Request,
+    SsprUnlockAccountRequestV1RequestFromJSON,
+    SsprUnlockAccountRequestV1RequestToJSON,
+    SsprUnlockAccountV1Request,
+    SsprUnlockAccountV1RequestFromJSON,
+    SsprUnlockAccountV1RequestToJSON,
 } from '../models';
+
+export interface SsprResetPasswordRequestV1OperationRequest {
+    ssprResetPasswordRequestV1Request: SsprResetPasswordRequestV1Request;
+}
+
+export interface SsprResetPasswordV1OperationRequest {
+    ssprResetPasswordV1Request: SsprResetPasswordV1Request;
+}
+
+export interface SsprSendUsernamesV1OperationRequest {
+    ssprSendUsernamesV1Request: SsprSendUsernamesV1Request;
+}
+
+export interface SsprUnlockAccountRequestV1OperationRequest {
+    ssprUnlockAccountRequestV1Request: SsprUnlockAccountRequestV1Request;
+}
+
+export interface SsprUnlockAccountV1OperationRequest {
+    ssprUnlockAccountV1Request: SsprUnlockAccountV1Request;
+}
 
 /**
  * 
@@ -26,23 +61,106 @@ import {
 export class ModuleSsprApi extends runtime.BaseAPI {
 
     /**
-     * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
-     * Remind of forgotten username(s)
+     * This endpoint sends an email with a link to reset the user\'s password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Reset Password Request
      */
-    async ssprRemindUsernamesV1Raw(): Promise<runtime.ApiResponse<void>> {
+    async ssprResetPasswordRequestV1Raw(requestParameters: SsprResetPasswordRequestV1OperationRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.ssprResetPasswordRequestV1Request === null || requestParameters.ssprResetPasswordRequestV1Request === undefined) {
+            throw new runtime.RequiredError('ssprResetPasswordRequestV1Request','Required parameter requestParameters.ssprResetPasswordRequestV1Request was null or undefined when calling ssprResetPasswordRequestV1.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
         }
 
         const response = await this.request({
-            path: `/1/module/sspr/remindUsernames`,
+            path: `/1/module/sspr/resetPasswordRequest/`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: SsprResetPasswordRequestV1RequestToJSON(requestParameters.ssprResetPasswordRequestV1Request),
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * This endpoint sends an email with a link to reset the user\'s password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Reset Password Request
+     */
+    async ssprResetPasswordRequestV1(requestParameters: SsprResetPasswordRequestV1OperationRequest): Promise<void> {
+        await this.ssprResetPasswordRequestV1Raw(requestParameters);
+    }
+
+    /**
+     * This endpoint resets the user\'s password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Reset Password
+     */
+    async ssprResetPasswordV1Raw(requestParameters: SsprResetPasswordV1OperationRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.ssprResetPasswordV1Request === null || requestParameters.ssprResetPasswordV1Request === undefined) {
+            throw new runtime.RequiredError('ssprResetPasswordV1Request','Required parameter requestParameters.ssprResetPasswordV1Request was null or undefined when calling ssprResetPasswordV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/module/sspr/resetPassword`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SsprResetPasswordV1RequestToJSON(requestParameters.ssprResetPasswordV1Request),
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * This endpoint resets the user\'s password.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Reset Password
+     */
+    async ssprResetPasswordV1(requestParameters: SsprResetPasswordV1OperationRequest): Promise<void> {
+        await this.ssprResetPasswordV1Raw(requestParameters);
+    }
+
+    /**
+     * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
+     * Send username(s)
+     */
+    async ssprSendUsernamesV1Raw(requestParameters: SsprSendUsernamesV1OperationRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.ssprSendUsernamesV1Request === null || requestParameters.ssprSendUsernamesV1Request === undefined) {
+            throw new runtime.RequiredError('ssprSendUsernamesV1Request','Required parameter requestParameters.ssprSendUsernamesV1Request was null or undefined when calling ssprSendUsernamesV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/module/sspr/sendUsernames`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SsprSendUsernamesV1RequestToJSON(requestParameters.ssprSendUsernamesV1Request),
         });
 
         return new runtime.VoidApiResponse(response);
@@ -50,10 +168,86 @@ export class ModuleSsprApi extends runtime.BaseAPI {
 
     /**
      * This endpoint returns an email with the username(s) matching the email address provided in case of forgotten username
-     * Remind of forgotten username(s)
+     * Send username(s)
      */
-    async ssprRemindUsernamesV1(): Promise<void> {
-        await this.ssprRemindUsernamesV1Raw();
+    async ssprSendUsernamesV1(requestParameters: SsprSendUsernamesV1OperationRequest): Promise<void> {
+        await this.ssprSendUsernamesV1Raw(requestParameters);
+    }
+
+    /**
+     * This endpoint sends an email with a link to unlock the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Unlock Account Request
+     */
+    async ssprUnlockAccountRequestV1Raw(requestParameters: SsprUnlockAccountRequestV1OperationRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.ssprUnlockAccountRequestV1Request === null || requestParameters.ssprUnlockAccountRequestV1Request === undefined) {
+            throw new runtime.RequiredError('ssprUnlockAccountRequestV1Request','Required parameter requestParameters.ssprUnlockAccountRequestV1Request was null or undefined when calling ssprUnlockAccountRequestV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/module/sspr/unlockAccountRequest`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SsprUnlockAccountRequestV1RequestToJSON(requestParameters.ssprUnlockAccountRequestV1Request),
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * This endpoint sends an email with a link to unlock the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Unlock Account Request
+     */
+    async ssprUnlockAccountRequestV1(requestParameters: SsprUnlockAccountRequestV1OperationRequest): Promise<void> {
+        await this.ssprUnlockAccountRequestV1Raw(requestParameters);
+    }
+
+    /**
+     * This endpoint unlocks the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Unlock Account
+     */
+    async ssprUnlockAccountV1Raw(requestParameters: SsprUnlockAccountV1OperationRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.ssprUnlockAccountV1Request === null || requestParameters.ssprUnlockAccountV1Request === undefined) {
+            throw new runtime.RequiredError('ssprUnlockAccountV1Request','Required parameter requestParameters.ssprUnlockAccountV1Request was null or undefined when calling ssprUnlockAccountV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/module/sspr/unlockAccount`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SsprUnlockAccountV1RequestToJSON(requestParameters.ssprUnlockAccountV1Request),
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * This endpoint unlocks the user account.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+     * Unlock Account
+     */
+    async ssprUnlockAccountV1(requestParameters: SsprUnlockAccountV1OperationRequest): Promise<void> {
+        await this.ssprUnlockAccountV1Raw(requestParameters);
     }
 
 }
