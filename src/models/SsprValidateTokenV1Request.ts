@@ -21,15 +21,15 @@ import {
 } from './';
 
 /**
- * Request for the /1/module/sspr/unlockAccountRequest API Request
+ * Request for the /1/module/sspr/validateToken API Request
  * @export
- * @interface SsprUnlockAccountRequestV1Request
+ * @interface SsprValidateTokenV1Request
  */
-export interface SsprUnlockAccountRequestV1Request {
+export interface SsprValidateTokenV1Request {
     /**
      * The customer code assigned to your account
      * @type {string}
-     * @memberof SsprUnlockAccountRequestV1Request
+     * @memberof SsprValidateTokenV1Request
      */
     pksCustomerCode: string;
     /**
@@ -42,34 +42,40 @@ export interface SsprUnlockAccountRequestV1Request {
      * |1|French|
      * |2|English|
      * @type {number}
-     * @memberof SsprUnlockAccountRequestV1Request
+     * @memberof SsprValidateTokenV1Request
      */
     fkiLanguageID: number;
     /**
      * 
      * @type {FieldEUserTypeSSPR}
-     * @memberof SsprUnlockAccountRequestV1Request
+     * @memberof SsprValidateTokenV1Request
      */
     eUserTypeSSPR: FieldEUserTypeSSPR;
     /**
      * The email address.
      * @type {string}
-     * @memberof SsprUnlockAccountRequestV1Request
+     * @memberof SsprValidateTokenV1Request
      */
     sEmailAddress?: string;
     /**
      * The Login name of the User.
      * @type {string}
-     * @memberof SsprUnlockAccountRequestV1Request
+     * @memberof SsprValidateTokenV1Request
      */
     sUserLoginname?: string;
+    /**
+     * Hex Encoded Secret SSPR token
+     * @type {string}
+     * @memberof SsprValidateTokenV1Request
+     */
+    binUserSSPRtoken: string;
 }
 
-export function SsprUnlockAccountRequestV1RequestFromJSON(json: any): SsprUnlockAccountRequestV1Request {
-    return SsprUnlockAccountRequestV1RequestFromJSONTyped(json, false);
+export function SsprValidateTokenV1RequestFromJSON(json: any): SsprValidateTokenV1Request {
+    return SsprValidateTokenV1RequestFromJSONTyped(json, false);
 }
 
-export function SsprUnlockAccountRequestV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): SsprUnlockAccountRequestV1Request {
+export function SsprValidateTokenV1RequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): SsprValidateTokenV1Request {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -80,10 +86,11 @@ export function SsprUnlockAccountRequestV1RequestFromJSONTyped(json: any, ignore
         'eUserTypeSSPR': FieldEUserTypeSSPRFromJSON(json['eUserTypeSSPR']),
         'sEmailAddress': !exists(json, 'sEmailAddress') ? undefined : json['sEmailAddress'],
         'sUserLoginname': !exists(json, 'sUserLoginname') ? undefined : json['sUserLoginname'],
+        'binUserSSPRtoken': json['binUserSSPRtoken'],
     };
 }
 
-export function SsprUnlockAccountRequestV1RequestToJSON(value?: SsprUnlockAccountRequestV1Request | null): any {
+export function SsprValidateTokenV1RequestToJSON(value?: SsprValidateTokenV1Request | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -97,6 +104,7 @@ export function SsprUnlockAccountRequestV1RequestToJSON(value?: SsprUnlockAccoun
         'eUserTypeSSPR': FieldEUserTypeSSPRToJSON(value.eUserTypeSSPR),
         'sEmailAddress': value.sEmailAddress,
         'sUserLoginname': value.sUserLoginname,
+        'binUserSSPRtoken': value.binUserSSPRtoken,
     };
 }
 
