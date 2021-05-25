@@ -14,6 +14,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    AuthenticateAuthenticateV2ResponseMPayload,
+    AuthenticateAuthenticateV2ResponseMPayloadFromJSON,
+    AuthenticateAuthenticateV2ResponseMPayloadFromJSONTyped,
+    AuthenticateAuthenticateV2ResponseMPayloadToJSON,
     CommonResponse,
     CommonResponseFromJSON,
     CommonResponseFromJSONTyped,
@@ -26,55 +30,51 @@ import {
     CommonResponseObjDebugPayloadFromJSON,
     CommonResponseObjDebugPayloadFromJSONTyped,
     CommonResponseObjDebugPayloadToJSON,
-    EzsignfolderGetObjectV1ResponseMPayload,
-    EzsignfolderGetObjectV1ResponseMPayloadFromJSON,
-    EzsignfolderGetObjectV1ResponseMPayloadFromJSONTyped,
-    EzsignfolderGetObjectV1ResponseMPayloadToJSON,
 } from './';
 
 /**
- * Response for the /1/object/ezsignfolder/getObject API Request
+ * Response for the /2/module/authenticate/authenticate API Request
  * @export
- * @interface EzsignfolderGetObjectV1Response
+ * @interface AuthenticateAuthenticateV2Response
  */
-export interface EzsignfolderGetObjectV1Response {
+export interface AuthenticateAuthenticateV2Response {
     /**
      * 
-     * @type {EzsignfolderGetObjectV1ResponseMPayload}
-     * @memberof EzsignfolderGetObjectV1Response
+     * @type {AuthenticateAuthenticateV2ResponseMPayload}
+     * @memberof AuthenticateAuthenticateV2Response
      */
-    mPayload: EzsignfolderGetObjectV1ResponseMPayload;
+    mPayload: AuthenticateAuthenticateV2ResponseMPayload;
     /**
      * 
      * @type {CommonResponseObjDebugPayload}
-     * @memberof EzsignfolderGetObjectV1Response
+     * @memberof AuthenticateAuthenticateV2Response
      */
     objDebugPayload?: CommonResponseObjDebugPayload;
     /**
      * 
      * @type {CommonResponseObjDebug}
-     * @memberof EzsignfolderGetObjectV1Response
+     * @memberof AuthenticateAuthenticateV2Response
      */
     objDebug?: CommonResponseObjDebug;
 }
 
-export function EzsignfolderGetObjectV1ResponseFromJSON(json: any): EzsignfolderGetObjectV1Response {
-    return EzsignfolderGetObjectV1ResponseFromJSONTyped(json, false);
+export function AuthenticateAuthenticateV2ResponseFromJSON(json: any): AuthenticateAuthenticateV2Response {
+    return AuthenticateAuthenticateV2ResponseFromJSONTyped(json, false);
 }
 
-export function EzsignfolderGetObjectV1ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): EzsignfolderGetObjectV1Response {
+export function AuthenticateAuthenticateV2ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AuthenticateAuthenticateV2Response {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'mPayload': EzsignfolderGetObjectV1ResponseMPayloadFromJSON(json['mPayload']),
+        'mPayload': AuthenticateAuthenticateV2ResponseMPayloadFromJSON(json['mPayload']),
         'objDebugPayload': !exists(json, 'objDebugPayload') ? undefined : CommonResponseObjDebugPayloadFromJSON(json['objDebugPayload']),
         'objDebug': !exists(json, 'objDebug') ? undefined : CommonResponseObjDebugFromJSON(json['objDebug']),
     };
 }
 
-export function EzsignfolderGetObjectV1ResponseToJSON(value?: EzsignfolderGetObjectV1Response | null): any {
+export function AuthenticateAuthenticateV2ResponseToJSON(value?: AuthenticateAuthenticateV2Response | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -83,7 +83,7 @@ export function EzsignfolderGetObjectV1ResponseToJSON(value?: EzsignfolderGetObj
     }
     return {
         
-        'mPayload': EzsignfolderGetObjectV1ResponseMPayloadToJSON(value.mPayload),
+        'mPayload': AuthenticateAuthenticateV2ResponseMPayloadToJSON(value.mPayload),
         'objDebugPayload': CommonResponseObjDebugPayloadToJSON(value.objDebugPayload),
         'objDebug': CommonResponseObjDebugToJSON(value.objDebug),
     };

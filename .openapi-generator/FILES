@@ -4,6 +4,7 @@
 README.md
 package.json
 src/apis/GlobalCustomerApi.ts
+src/apis/ModuleAuthenticateApi.ts
 src/apis/ModuleSsprApi.ts
 src/apis/ModuleUserApi.ts
 src/apis/ObjectActivesessionApi.ts
@@ -28,6 +29,9 @@ src/models/ApikeyRequest.ts
 src/models/ApikeyRequestCompound.ts
 src/models/ApikeyResponse.ts
 src/models/AttemptResponse.ts
+src/models/AuthenticateAuthenticateV2Request.ts
+src/models/AuthenticateAuthenticateV2Response.ts
+src/models/AuthenticateAuthenticateV2ResponseMPayload.ts
 src/models/CommonAudit.ts
 src/models/CommonGetAutocompleteV1Response.ts
 src/models/CommonGetAutocompleteV1ResponseMPayload.ts
