@@ -97,6 +97,7 @@ src/models/EzsignsignerRequestCompoundContact.ts
 src/models/FieldEEzsigndocumentStep.ts
 src/models/FieldEEzsignfolderSendreminderfrequency.ts
 src/models/FieldEEzsignfolderStep.ts
+src/models/FieldEEzsignsignatureType.ts
 src/models/FieldEPhoneType.ts
 src/models/FieldEUserType.ts
 src/models/FieldEUserTypeSSPR.ts

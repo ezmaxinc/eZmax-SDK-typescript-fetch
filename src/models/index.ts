@@ -76,6 +76,7 @@ export * from './EzsignsignerRequestCompoundContact';
 export * from './FieldEEzsigndocumentStep';
 export * from './FieldEEzsignfolderSendreminderfrequency';
 export * from './FieldEEzsignfolderStep';
+export * from './FieldEEzsignsignatureType';
 export * from './FieldEPhoneType';
 export * from './FieldEUserType';
 export * from './FieldEUserTypeSSPR';
